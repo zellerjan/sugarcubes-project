@@ -6,13 +6,6 @@
     --white: #FFF;
 }
 
-
-/* EMBED FONT */
-/* @font-face {
-    font-family: 'BasicCommercial';
-    src:  url('/assets/fonts/BasicCommercialLT-Roman.woff2') format('woff2'),
-          url('/assets/fonts/BasicCommercialLT-Roman.woff') format('woff');
-} */
 /* --------------------IMPORT FONT "INTER"------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
