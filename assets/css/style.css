@@ -22,6 +22,7 @@ body {
     font-family: "Inter", sans-serif;
     background-color: var(--background-color);
     margin: 0;
+    overflow: hidden;
 }
 
 h1 {
@@ -105,5 +106,5 @@ div {
 
 
 @media screen and (max-width: 620px) {
-    
+
 }
