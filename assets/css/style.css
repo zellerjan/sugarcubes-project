@@ -20,14 +20,15 @@ body {
 
 h1 {
     font-weight: 700;
-    font-size: 4.75rem;
+    font-size: 5rem;
     margin: 0;
+    padding-left: 20px;
 }
 
 p {
-    font-weight: 400;
-    padding-left: 10px;
-    font-size: 12px;
+    font-weight: 500;
+    padding-left: 20px;
+    font-size: 1rem;
 }
 
 div {
@@ -41,7 +42,7 @@ div {
 
 #grid {
     display: grid;
-    grid-template-columns: repeat(15, 130px);
+    grid-template-columns: repeat(20, 130px);
     grid-template-rows: repeat(15, 130px);
     gap: 10px;
 
@@ -69,7 +70,7 @@ div {
 }
 
 .title {
-    grid-column: span 5;
+    grid-column: span 4;
 }
 
 
