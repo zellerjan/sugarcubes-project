@@ -15,7 +15,7 @@ body {
     font-family: "Inter", sans-serif;
     background-color: var(--background-color);
     margin: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 h1 {
@@ -41,14 +41,14 @@ div {
 
 #grid {
     display: grid;
-    grid-template-columns: repeat(15, 130px);
-    grid-template-rows: repeat(15, 130px);
+    grid-template-columns: repeat(10, 80px);
+    grid-template-rows: repeat(10, 80px);
     gap: 10px;
 
-    /* justify-content: center;
-    align-content: center; */
+    justify-content: center;
+    align-content: center;
 
-    /* height: 100vh; */
+    height: 100vh;
 }
 
 
@@ -72,10 +72,29 @@ div {
     grid-column: span 5;
 }
 
+.mobile-tile {
+    display: none;
+}
+
+
 
 /* ------------- FOR SCREEN SMALLER 1000px ---------------- */
 @media screen and (max-width: 1000px) {
 
+    #grid {
+        display: grid;
+        grid-template-columns: repeat(12, 80px);
+        grid-template-rows: repeat(12, 80px);
+        height: auto;
+    }
+    
+    .empty-desktop {
+        display: none;
+    }
+
+    .mobile-tile {
+        display: block;
+    }
 }
 
 
