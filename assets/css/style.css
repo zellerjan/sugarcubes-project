@@ -72,7 +72,7 @@ div:has(h1):hover {
 
 div.black {
     animation-name: change-black;
-    animation-duration: 20s;
+    animation-duration: 30s;
     animation-delay: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: steps(1, end);
@@ -80,15 +80,15 @@ div.black {
 }
 div.cyan:not(.text) {
     animation-name: change-cyan;
-    animation-duration: 20s;
-    animation-delay: 5s;
+    animation-duration: 30s;
+    animation-delay: 7s;
     animation-iteration-count: infinite;
     animation-timing-function: steps(1, end);
 }
 div.magenta:not(.text) {
     animation-name: change-magenta;
-    animation-duration: 20s;
-    animation-delay: 5s;
+    animation-duration: 30s;
+    animation-delay: 6s;
     animation-iteration-count: infinite;
     animation-timing-function: steps(1, end);
 }
