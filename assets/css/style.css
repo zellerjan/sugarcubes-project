@@ -97,7 +97,7 @@ div:not(.title):hover {
 
 
 /* -------------- ANIMATION ----------------- */
-/* @keyframes change-black {
+@keyframes change-black {
     0%   {background-color: var(--black);}
     20%  {background-color: var(--magenta);}
     60%  {background-color: var(--cyan);}
@@ -137,7 +137,7 @@ div.magenta:not(.text) {
     animation-delay: 6s;
     animation-iteration-count: infinite;
     animation-timing-function: steps(1, end);
-} */
+}
 
 @media screen and (max-width: 1000px) {
     #grid {
