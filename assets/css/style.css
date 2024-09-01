@@ -15,12 +15,15 @@ body {
     font-family: "Inter", sans-serif;
     background-color: var(--background-color);
     margin: 0;
-    /* overflow: hidden; */
+
+    /* FINAL ADJUSTMENTS */
+    overflow: hidden;
+    transform: rotate(-45deg);
 }
 
 h1 {
     font-weight: 700;
-    font-size: 5rem;
+    font-size: 6rem;
     margin: 0;
     padding-left: 20px;
 }
@@ -28,7 +31,7 @@ h1 {
 p {
     font-weight: 500;
     padding-left: 20px;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 div {
@@ -42,14 +45,15 @@ div {
 
 #grid {
     display: grid;
-    grid-template-columns: repeat(20, 130px);
-    grid-template-rows: repeat(15, 130px);
+    grid-template-columns: repeat(20, 150px);
+    grid-template-rows: repeat(25, 150px);
     gap: 10px;
 
-    /* justify-content: center;
-    align-content: center; */
+    justify-content: center;
+    align-content: center;
 
-    /* height: 100vh; */
+    /* ADJUST HIGHT OF GRID */
+    height: 120vh;
 }
 
 
