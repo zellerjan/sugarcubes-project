@@ -22,8 +22,8 @@ body {
 }
 
 h1 {
-    font-weight: 700;
-    font-size: 6rem;
+    font-weight: 600;
+    font-size: 7.5rem;
     margin: 0;
     padding-left: 20px;
 }
@@ -34,9 +34,63 @@ p {
     font-size: 1.5rem;
 }
 
+
+/* ------------- HOVER TRANSITION ---------------------- */
 div {
     display: flex;
     align-items: center;
+    transition: 0.2s ease-out;
+}
+div:hover {
+    transform: scale(1.15);
+}
+/* STOP HOVER EFFECT ON TITLE */
+div:has(h1):hover {
+    transform: none;
+}
+
+
+/* -------------- ANIMATION ----------------- */
+@keyframes change-black {
+    0%   {background-color: var(--black);}
+    20%  {background-color: var(--magenta);}
+    60%  {background-color: var(--cyan);}
+    100% {background-color: var(--black);}
+  }
+@keyframes change-cyan {
+    0%   {background-color: var(--cyan);}
+    20%  {background-color: var(--black);}
+    60%  {background-color: var(--magenta);}
+    100% {background-color: var(--cyan);}
+}
+@keyframes change-magenta {
+    0%   {background-color: var(--magenta);}
+    20%  {background-color: var(--cyan);}
+    60% {background-color: var(--black);}
+    100% {background-color: var(--magenta);}
+}
+
+div.black {
+    animation-name: change-black;
+    animation-duration: 20s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, end);
+    
+}
+div.cyan:not(.text) {
+    animation-name: change-cyan;
+    animation-duration: 20s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, end);
+}
+div.magenta:not(.text) {
+    animation-name: change-magenta;
+    animation-duration: 20s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, end);
 }
 
 
@@ -45,15 +99,15 @@ div {
 
 #grid {
     display: grid;
-    grid-template-columns: repeat(20, 150px);
-    grid-template-rows: repeat(25, 150px);
+    grid-template-columns: repeat(24, 140px);
+    grid-template-rows: repeat(25, 140px);
     gap: 10px;
 
     justify-content: center;
     align-content: center;
 
     /* ADJUST HIGHT OF GRID */
-    height: 120vh;
+    height: 90vh;
 }
 
 
@@ -74,7 +128,7 @@ div {
 }
 
 .title {
-    grid-column: span 4;
+    grid-column: span 5;
 }
 
 
