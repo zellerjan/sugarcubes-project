@@ -1,3 +1,10 @@
+/* --------------------IMPORT FONT "INTER"------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+
+
+/* ------------------- DEFINE VARIABLES ------------------- */
 :root {
     --background: #DEE1D6;
     --cyan: #00B2A2;
@@ -6,9 +13,6 @@
     --white: #FFF;
 }
 
-/* --------------------IMPORT FONT "INTER"------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 
 /* ----------------------TYPO------------------------- */
 body {
@@ -16,7 +20,6 @@ body {
     background-color: var(--background-color);
     margin: 0;
 
-    /* FINAL ADJUSTMENTS */
     overflow: hidden;
     transform: rotate(-45deg);
 }
@@ -97,7 +100,7 @@ div:not(.title):hover {
 
 
 /* -------------- ANIMATION ----------------- */
-@keyframes change-black {
+/* @keyframes change-black {
     0%   {background-color: var(--black);}
     20%  {background-color: var(--magenta);}
     60%  {background-color: var(--cyan);}
@@ -137,7 +140,9 @@ div.magenta:not(.text) {
     animation-delay: 6s;
     animation-iteration-count: infinite;
     animation-timing-function: steps(1, end);
-}
+} */
+
+/* ------------------------- MEDIA QUERIES ------------------------ */
 
 @media screen and (max-width: 1000px) {
     #grid {
@@ -184,3 +189,7 @@ div.magenta:not(.text) {
         display: none;
     }
 }
+
+
+
+/* ---------------------- CUSTOM CURSOR ------------------- */
