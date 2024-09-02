@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.black, .magenta, .cyan').forEach(div => {
         div.addEventListener('mouseenter', () => {
