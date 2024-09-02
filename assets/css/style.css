@@ -74,6 +74,7 @@ p {
 .title-space {
     grid-column: span 5;
 }
+
 .title-space-mobile {
     grid-column: span 3;
 }
