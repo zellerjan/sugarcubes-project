@@ -22,6 +22,7 @@ body {
 
     overflow: hidden;
     transform: rotate(-45deg);
+    touch-action: none;
 }
 
 h1 {
@@ -82,24 +83,28 @@ p {
 }
 
 /* ------------- HOVER TRANSITION ---------------------- */
-div {
-    display: flex;
-    align-items: center;
-    transition: 0.3s ease;
+
+
+/* SCALE DOWN ON HOVER */
+div:not(.title, .text):hover {
+    transform: scale(.8);
 }
 
-/* SCALE ALL */
-div:not(.title):hover {
-    transform: scale(.9);
+/* STANDARD NOT VISIBLE */
+div:where(:not(.title, .text)) {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* TURN SQUARES 90 DEGREES ON HOVER */
-/* div:not(.double, .title, .text):hover {
-    transform: rotateZ(90deg);
-} */
+/* CLASS TO MAKE DIVS VISIBLE WITH JS */
+.visible {
+    opacity: 1;
+}
 
 
-/* -------------- ANIMATION ----------------- */
+
+/* -------------------- ANIMATION ----------------------- */
+
 /* @keyframes change-black {
     0%   {background-color: var(--black);}
     20%  {background-color: var(--magenta);}
@@ -142,6 +147,7 @@ div.magenta:not(.text) {
     animation-timing-function: steps(1, end);
 } */
 
+
 /* ------------------------- MEDIA QUERIES ------------------------ */
 
 @media screen and (max-width: 1000px) {
@@ -161,7 +167,7 @@ div.magenta:not(.text) {
 }
 
 
-/* ------------- FOR SCREEN SMALLER 750px ---------------- */
+/*  FOR SCREEN SMALLER 750px */
 @media screen and (max-width: 650px) {
 
     #grid {
