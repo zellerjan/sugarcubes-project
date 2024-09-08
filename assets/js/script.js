@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.black, .magenta, .cyan').forEach(div => {
         div.addEventListener('mouseenter', () => {
-            // Add the 'visible' class to make the div fully visible
+            // Add the 'visible' class to make div visible
             div.classList.add('visible');
             });
         });

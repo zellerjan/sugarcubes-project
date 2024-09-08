@@ -27,7 +27,7 @@ body {
 
 h1 {
     font-weight: 600;
-    font-size: 7.5rem;
+    font-size: 8.2rem;
     margin: 0;
     padding-left: 20px;
 }
@@ -83,19 +83,19 @@ p {
     display: none;
 }
 
-/* ------------- HOVER TRANSITION ---------------------- */
 
+/* ------------------- HOVER TRANSITION ---------------------- */
 
 /* SCALE DOWN ON HOVER */
-div:not(.title, .text):hover {
+/* div:not(.title, .text):hover {
     transform: scale(.8);
-}
+} */
 
 /* STANDARD NOT VISIBLE */
-div:where(:not(.title, .text)) {
+/* div:where(:not(.title, .text)) {
     opacity: 0;
     transition: opacity 0.5s ease, transform 0.5s ease;
-}
+} */
 
 /* CLASS TO MAKE DIVS VISIBLE WITH JS */
 .visible {
@@ -159,7 +159,7 @@ div.magenta:not(.text) {
     }
 
     h1 {
-        font-size: 6.5rem;
+        font-size: 7rem;
     }
     
     p {
