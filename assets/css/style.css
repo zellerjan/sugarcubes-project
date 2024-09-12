@@ -13,11 +13,16 @@
     --white: #FFF;
 }
 
+::selection {
+    background-color: var(--black);
+    color: var(--background);
+}
+
 
 /* ----------------------TYPO------------------------- */
 body {
     font-family: "Inter", sans-serif;
-    background-color: var(--background-color);
+    background-color: var(--background);
     margin: 0;
 
     overflow: hidden;
@@ -34,7 +39,7 @@ h1 {
 
 p {
     font-weight: 500;
-    padding-left: 20px;
+    padding: 20px;
     font-size: 1.5rem;
 }
 
@@ -54,7 +59,13 @@ p {
     height: 90vh;
 }
 
+/* move text in vertical center of div without messing with mobile tiles */
+div:where(:not(.mobile-tile)):has(p) {
+    display: flex;
+    align-items: center;
+}
 
+/* colors of divs in grid */
 .cyan {
     background-color: var(--cyan);
 }
@@ -67,6 +78,7 @@ p {
     background-color: var(--black);
 }
 
+/* spacing in grid */
 .double {
     grid-column: span 2;
 }
@@ -79,25 +91,26 @@ p {
     grid-column: span 3;
 }
 
+/* dont display mobile-tiles on desktop */
 .mobile-tile {
     display: none;
 }
 
 
-/* ------------------- HOVER TRANSITION ---------------------- */
+/* ------------------- HOVER EFFECT + TRANSITION ---------------------- */
 
-/* SCALE DOWN ON HOVER */
+/* scale down on hover effect */
 /* div:not(.title, .text):hover {
     transform: scale(.8);
 } */
 
-/* STANDARD NOT VISIBLE */
+/* set standard of deco-tiles to not visible */
 /* div:where(:not(.title, .text)) {
     opacity: 0;
     transition: opacity 0.5s ease, transform 0.5s ease;
 } */
 
-/* CLASS TO MAKE DIVS VISIBLE WITH JS */
+/* class to make tiles visible with script.js */
 .visible {
     opacity: 1;
 }
@@ -106,6 +119,7 @@ p {
 
 /* -------------------- ANIMATION ----------------------- */
 
+/* changes colors of the tiles around every 5s */
 /* @keyframes change-black {
     0%   {background-color: var(--black);}
     20%  {background-color: var(--magenta);}
@@ -149,8 +163,10 @@ div.magenta:not(.text) {
 } */
 
 
+
 /* ------------------------- MEDIA QUERIES ------------------------ */
 
+/* FOR SCREEN SMALLER 1000px */
 @media screen and (max-width: 1000px) {
     #grid {
         grid-template-columns: repeat(24, 120px);
@@ -183,15 +199,15 @@ div.magenta:not(.text) {
     }
     
     p {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding: 15px;
         font-size: 1rem;
+        margin: 0;
     }
 
+    /* change tiles so that it fits on mobile */
     .mobile-tile {
         display: block;
     }
-
     .desktop-tile {
         display: none;
     }
@@ -200,3 +216,5 @@ div.magenta:not(.text) {
 
 
 /* ---------------------- CUSTOM CURSOR ------------------- */
+
+/* needs to be done... */

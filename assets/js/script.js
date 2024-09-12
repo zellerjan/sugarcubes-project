@@ -1,12 +1,16 @@
+
+// WAIT FOR DOCUMENT TO FINISH LOADING
 document.addEventListener('DOMContentLoaded', () => {
+
+    // make divs visible if mouser hover over
     document.querySelectorAll('.black, .magenta, .cyan').forEach(div => {
         div.addEventListener('mouseenter', () => {
-            // Add the 'visible' class to make div visible
             div.classList.add('visible');
             });
         });
 
-    // ------ RANDOM APPEAR OF DIVS -------    
+    //-------------- FUNCTION FOR RANDOM DIVS APPEARING ON SCREEN OVER TIME --------------------
+    // random appear of divs over time
     const divs = document.querySelectorAll('.black, .magenta, .cyan');
     let visibleDivs = [];
 
@@ -26,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // If the div is in the viewport, add it to the visibleDivs array
+                // If div is in the viewport, add it to the visibleDivs array
                 if (!visibleDivs.includes(entry.target)) {
                     visibleDivs.push(entry.target);
                 }
@@ -45,6 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(div);
     });
 
-    // Call the function at regular intervals (e.g., every 2 seconds)
+    // Call the function 1s)
     setInterval(showRandomVisibleDiv, 1000);
 });
