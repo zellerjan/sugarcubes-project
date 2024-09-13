@@ -9,6 +9,8 @@
     --magenta: #ED147F;
     --black: #000;
     --white: #FFF;
+
+    cursor: none;
 }
 
 /* change selection color and background */
@@ -38,8 +40,9 @@ h1 {
 
 p {
     font-weight: 400;
-    padding: 20px;
+    padding: 0px 20px;
     font-size: 1.2rem;
+    margin: 0;
 }
 
 
@@ -102,11 +105,12 @@ div:where(:not(.mobile-tile)):has(p) {
 
 /* ------------------------- MEDIA QUERIES ------------------------ */
 /* FOR SCREEN BIGGER THAN 2100px */
-@media screen and (min-width: 1900px) {
+@media screen and (min-width: 2000px) {
     #grid {
         grid-template-columns: repeat(24, 140px);
         grid-template-rows: repeat(25, 140px);
-        gap: 15px;
+        gap: 10px;
+        height: 90vh;
     }
 
     h1 {
@@ -129,25 +133,6 @@ div:where(:not(.mobile-tile)):has(p) {
 
 }
 
-
-
-/* FOR SCREEN SMALLER 1100px */
-@media screen and (max-width: 1100px) {
-
-    #grid {
-        grid-template-columns: repeat(24, 110px);
-        grid-template-rows: repeat(25, 110px);
-        gap: 10px;
-    }
-
-    h1 {
-        font-size: 6.8rem;
-    }
-    
-    p {
-        font-size: 1.1rem;
-    }
-}
 
 
 /*  FOR SCREEN SMALLER 750px */
@@ -180,7 +165,14 @@ div:where(:not(.mobile-tile)):has(p) {
     .desktop-tile {
         display: none;
     }
+
+    /* remove custom cursor on mobile */
+    .cursor-dot,
+    .cursor-dot-outline {
+        display: none;
+    }
 }
+
 
 /*  FOR SCREEN LESS HIGH 800px */
 @media screen and (max-height: 800px) {
@@ -207,7 +199,43 @@ div:where(:not(.mobile-tile)):has(p) {
 
 /* ---------------------- CUSTOM CURSOR ------------------- */
 
-/* needs to be done... */
+.cursor-dot,
+.cursor-dot-outline {
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cursor-dot {
+  --size: 10px;
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--magenta);
+}
+
+.cursor-dot-outline {
+  --size2: 40px;
+  width: var(--size2);
+  height: var(--size2);
+  background-color: #ED147F25;
+  border: 3px solid #ED147F75;
+}
+
+/* change color of cursor if hovering on same color */
+.hovering-magenta {
+    background-color: var(--black);
+}
+
+.hovering-magenta-outline {
+    background-color: #00000025;
+    border: 3px solid #00000075;
+
+}
 
 
 
