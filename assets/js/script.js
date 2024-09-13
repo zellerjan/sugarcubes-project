@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(div);
     });
 
-    // Call the function 1s)
+    // Call the function every .5s
     setInterval(showRandomVisibleDiv, 500);
 
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to prevent default scrolling behavior
     function preventDefault(e) {
         e.preventDefault();
-        e.stopPropagation();  // Also stop propagation to prevent further event handling
+        e.stopPropagation(); 
     }
 
     // Function to disable all scrolling
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('touchmove', preventDefault, { passive: false });
     }
 
-    // Call disableScroll() when needed
+    // Call disableScroll()
     disableScroll();
 
 
