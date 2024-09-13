@@ -50,5 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Call the function 1s)
-    setInterval(showRandomVisibleDiv, 1000);
+    setInterval(showRandomVisibleDiv, 500);
+
+
+    // ----------------------- STOP SCROLLING ON MOBILE --------------------
+    // Function to prevent default scrolling behavior
+    function preventDefault(e) {
+        e.preventDefault();
+        e.stopPropagation();  // Also stop propagation to prevent further event handling
+    }
+
+    // Function to disable all scrolling
+    function disableScroll() {
+        // Disable scrolling via mousewheel
+        window.addEventListener('wheel', preventDefault, { passive: false });
+        
+        // Disable touch scrolling on mobile devices
+        document.addEventListener('touchmove', preventDefault, { passive: false });
+    }
+
+    // Call disableScroll() when needed
+    disableScroll();
+
+
 });
