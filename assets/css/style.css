@@ -93,12 +93,16 @@ div:where(:not(.mobile-tile)):has(p) {
     display: none;
 }
 
+.wide-tile {
+    display: none;
+}
+
 
 
 
 /* ------------------------- MEDIA QUERIES ------------------------ */
 /* FOR SCREEN BIGGER THAN 2100px */
-@media screen and (min-width: 2100px) {
+@media screen and (min-width: 1900px) {
     #grid {
         grid-template-columns: repeat(24, 140px);
         grid-template-rows: repeat(25, 140px);
@@ -113,13 +117,14 @@ div:where(:not(.mobile-tile)):has(p) {
         font-size: 1.2rem;
     }
 
+    /* show wide-tiles and remove tiles for more space */
     .wide-tile {
         display: block;
     }
-/* 
-    .desktop-tile {
+
+    .wide-tile-gone {
         display: none;
-    } */
+    }
 
 
 }
@@ -174,6 +179,27 @@ div:where(:not(.mobile-tile)):has(p) {
 
     .desktop-tile {
         display: none;
+    }
+}
+
+/*  FOR SCREEN LESS HIGH 800px */
+@media screen and (max-height: 800px) {
+    #grid {
+        grid-template-columns: repeat(24, 90px);
+        grid-template-rows: repeat(26, 90px);
+        gap: 7px;
+    }
+
+    h1 {
+        font-size: 5.6rem;
+        padding-left: 10px;
+        line-height: .95;
+    }
+    
+    p {
+        padding: 15px;
+        font-size: 1rem;
+        margin: 0;
     }
 }
 
