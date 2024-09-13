@@ -53,7 +53,7 @@ p {
     gap: 10px;
     justify-content: center;
     align-content: center;
-    height: 90vh;
+    height: 95vh;
 }
 
 /* move text in vertical center of div without messing with mobile tiles */
@@ -97,8 +97,8 @@ div:where(:not(.mobile-tile)):has(p) {
 
 
 /* ------------------------- MEDIA QUERIES ------------------------ */
-/* FOR SCREEN BIGGER THAN 2200px */
-@media screen and (min-width: 2200px) {
+/* FOR SCREEN BIGGER THAN 2100px */
+@media screen and (min-width: 2100px) {
     #grid {
         grid-template-columns: repeat(24, 140px);
         grid-template-rows: repeat(25, 140px);
@@ -112,6 +112,16 @@ div:where(:not(.mobile-tile)):has(p) {
     p {
         font-size: 1.2rem;
     }
+
+    .wide-tile {
+        display: block;
+    }
+/* 
+    .desktop-tile {
+        display: none;
+    } */
+
+
 }
 
 
