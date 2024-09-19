@@ -74,8 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ------------------------ CUSTOM CURSOR ---------------------------------
-    const cursor = {
-        delay: 30,
+    var cursor = {
+        delay: 25,
         _x: 0,
         _y: 0,
         endX: (window.innerWidth / 2),
@@ -96,13 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         getTransformedCoordinates: function(x, y) {
             // Adjust based on body's rotation (-45 degrees)
-            let angle = 45 * (Math.PI / 180); // Convert degrees to radians
-            let offsetX = window.innerWidth / 2;
-            let offsetY = window.innerHeight / 2;
+            var angle = 45 * (Math.PI / 180);
+            var offsetX = window.innerWidth / 2;
+            var offsetY = window.innerHeight / 2;
 
             // Calculate the transformed coordinates
-            let transformedX = Math.cos(angle) * (x - offsetX) - Math.sin(angle) * (y - offsetY) + offsetX;
-            let transformedY = Math.sin(angle) * (x - offsetX) + Math.cos(angle) * (y - offsetY) + offsetY;
+            var transformedX = Math.cos(angle) * (x - offsetX) - Math.sin(angle) * (y - offsetY) + offsetX;
+            var transformedY = Math.sin(angle) * (x - offsetX) + Math.cos(angle) * (y - offsetY) + offsetY;
 
             return {
                 x: transformedX,
@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         },
 
-        setupEventListeners: function() { 
-            let self = this;
+        setupEventListeners: function() {
+            var self = this;
             
             // Anchor hovering
             document.querySelectorAll('a').forEach(function(el) {
@@ -142,18 +142,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 self.toggleCursorVisibility();
 
                 // Get transformed coordinates
-                let coords = self.getTransformedCoordinates(e.pageX, e.pageY);
+                var coords = self.getTransformedCoordinates(e.pageX, e.pageY);
                 self.endX = coords.x;
                 self.endY = coords.y;
                 self.updateCursorPosition();
 
                 // Check if hovering over any part of a div with class .magenta
-                let magentaElements = document.querySelectorAll('.magenta');
-                let isHoveringMagenta = false;
+                var magentaElements = document.querySelectorAll('.magenta');
+                var isHoveringMagenta = false;
 
                 magentaElements.forEach(function(magentaElement) {
-                    let rect = magentaElement.getBoundingClientRect();
-                    let isInBounds = (
+                    var rect = magentaElement.getBoundingClientRect();
+                    var isInBounds = (
                         e.clientX >= rect.left &&
                         e.clientX <= rect.right &&
                         e.clientY >= rect.top &&
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         
         animateDotOutline: function() {
-            let self = this;
+            var self = this;
             
             self._x += (self.endX - self._x) / self.delay;
             self._y += (self.endY - self._y) / self.delay;
@@ -228,7 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
-    // initialise custom cursor
     cursor.init();
 
 });
