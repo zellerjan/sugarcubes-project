@@ -1,4 +1,4 @@
-This project was created as part of a course at "Schule für Gestaltung Zürich". It's an interpretation of an existing poster for the Band "Sugarcubes".
+This project was created as part of the course "Webtechnologien" at "Schule für Gestaltung Zürich". It's an interpretation of an existing poster for the Band "Sugarcubes".
 
 
 
