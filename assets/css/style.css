@@ -1,8 +1,15 @@
-/* --------------------IMPORT FONT "ROBOTO" FROM GOOGLE FONT ------------------- */
+/* 
+Project: sugarcubes
+Author: Jan Zeller
+Version: 2.0 
+*/
+
+
+/* ------------------------------IMPORT FONT "ROBOTO" FROM GOOGLE FONT ---------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
-/* ------------------- DEFINE VARIABLES ------------------- */
+/* -------------------------------------DEFINE VARIABLES AND ROOT STUFF--------------------------- */
 :root {
     --background: #DEE1D6;
     --cyan: #00B2A2;
@@ -14,6 +21,7 @@
     --black-75: #00000075;
     --white: #FFF;
 
+    /* hide regular cursor */
     cursor: none;
 }
 
@@ -25,7 +33,7 @@
 
 
 
-/* ----------------------TYPO------------------------- */
+/* --------------------------------------TYPOGRAPHY---------------------------------------- */
 body {
     font-family: "Roboto", sans-serif;
     background-color: var(--background);
@@ -53,7 +61,7 @@ p {
 
 
 
-/* -------------------- LAYOUT ------------------------- */
+/* ---------------------------------------- LAYOUT -------------------------------------------- */
 
 #grid {
     display: grid;
@@ -109,7 +117,7 @@ div:where(:not(.mobile-tile)):has(p) {
 
 
 
-/* ------------------------- MEDIA QUERIES ------------------------ */
+/* ------------------------------------- MEDIA QUERIES ----------------------------------------- */
 /* FOR SCREEN BIGGER THAN 2100px */
 @media screen and (min-width: 2000px) {
     #grid {
@@ -127,7 +135,7 @@ div:where(:not(.mobile-tile)):has(p) {
         font-size: 1.2rem;
     }
 
-    /* show wide-tiles and remove tiles for more space */
+    /* show wide-tiles and remove regular-tiles for more space */
     .wide-tile {
         display: block;
     }
@@ -203,7 +211,7 @@ div:where(:not(.mobile-tile)):has(p) {
 
 
 
-/* ---------------------- CUSTOM CURSOR ------------------- */
+/* -------------------------------------------- CUSTOM CURSOR -------------------------------------- */
 
 .cursor-dot,
 .cursor-dot-outline {
@@ -245,7 +253,7 @@ div:where(:not(.mobile-tile)):has(p) {
 
 
 
-/* ------------------- HOVER EFFECT + TRANSITION ---------------------- */
+/* ------------------------------------ HOVER EFFECT + TRANSITION ---------------------------------- */
 
 /* scale down on hover effect */
 /* div:not(.title, .text):hover {
@@ -265,7 +273,7 @@ div:where(:not(.mobile-tile)):has(p) {
 
 
 
-/* -------------------- ANIMATION ----------------------- */
+/* -------------------------------------------- ANIMATION ---------------------------------------- */
 
 /* changes colors of the tiles around every 5s */
 /* @keyframes change-black {
