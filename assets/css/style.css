@@ -9,7 +9,7 @@ Version: 2.0
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
-/* -------------------------------------DEFINE VARIABLES AND ROOT STUFF--------------------------- */
+/* ----------------------------------DEFINE COLOR-VARIABLES AND ROOT STUFF--------------------------- */
 :root {
     --background: #DEE1D6;
     --cyan: #00B2A2;
@@ -79,7 +79,7 @@ div:where(:not(.mobile-tile)):has(p) {
     align-items: center;
 }
 
-/* colors of divs in grid */
+/* set colors of divs in grid */
 .cyan {
     background-color: var(--cyan);
 }
@@ -105,7 +105,7 @@ div:where(:not(.mobile-tile)):has(p) {
     grid-column: span 3;
 }
 
-/* dont display mobile-tiles on desktop */
+/* dont display mobile-tiles and wide-tiles on desktop */
 .mobile-tile {
     display: none;
 }
@@ -118,7 +118,7 @@ div:where(:not(.mobile-tile)):has(p) {
 
 
 /* ------------------------------------- MEDIA QUERIES ----------------------------------------- */
-/* FOR SCREEN BIGGER THAN 2100px */
+/* FOR SCREEN BIGGER THAN 2000px */
 @media screen and (min-width: 2000px) {
     #grid {
         grid-template-columns: repeat(24, 140px);
@@ -148,8 +148,7 @@ div:where(:not(.mobile-tile)):has(p) {
 }
 
 
-
-/*  FOR SCREEN SMALLER 750px */
+/*  FOR SCREEN SMALLER 650px */
 @media screen and (max-width: 650px) {
 
     #grid {
