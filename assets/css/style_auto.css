@@ -21,8 +21,7 @@ Version: 2.0
     --black-75: #00000075;
     --white: #FFF;
 
-    --columns-grid: 20;
-    --rows-grid: 20;
+    --grid: 20;
 }
 
 /* change selection color and background */
@@ -59,76 +58,12 @@ p {
     margin: 0;
 }
 
-div {
-    background-color: var(--magenta-75);
-}
-
-h1.sugarcubes {
-    grid-column: calc(var(--columns-grid) / 2 - 1) / calc(var(--columns-grid) / 2 + 4);
-    grid-row: calc(var(--rows-grid) / 2);
-}
-h1.the {
-    grid-column: calc(var(--columns-grid) / 2 - 1) / calc(var(--columns-grid) / 2 + 1);
-    grid-row: calc(var(--rows-grid) / 2 - 1);
-}
-div.empty1 {
-    grid-column: calc(var(--columns-grid) / 2 - 2) / calc(var(--columns-grid) / 2 + 6);
-    grid-row: calc(var(--rows-grid) / 2 - 2) / calc(var(--rows-grid) / 2 + 1);
-    background-color: transparent;
-}
-
-div.empty2 {
-    grid-column: calc(var(--columns-grid) / 2 - 1) / calc(var(--columns-grid) / 2 + 2);  
-    grid-row: calc(var(--rows-grid) / 2 - 3) / calc(var(--rows-grid) / 2 + 3);
-    background-color: transparent;
-}
-div.empty3 {
-    grid-column: calc(var(--columns-grid) / 2 ) / calc(var(--columns-grid) / 2 + 3);
-    grid-row: calc(var(--rows-grid) / 2 - 2) / calc(var(--rows-grid) / 2 + 2);
-    background-color: transparent;
-}
-div.empty4 {
-    grid-column: calc(var(--columns-grid) / 2 + 4) / calc(var(--columns-grid) / 2 + 5); 
-    grid-row: calc(var(--rows-grid) / 2 - 3) / calc(var(--rows-grid) / 2 + 3);
-    background-color: transparent;
-}
-div.empty5 {
-    grid-column: calc(var(--columns-grid) / 2 - 3) / calc(var(--columns-grid) / 2 + 6);
-    grid-row: calc(var(--rows-grid) / 2);
-    background-color: transparent;
-}
-
-p.limelight {
-    grid-column: calc(var(--columns-grid) / 2 + 1) / calc(var(--columns-grid) / 2 + 3);
-    grid-row: calc(var(--rows-grid) / 2 - 1);
-
-    display: flex;
-    align-items: center;
-}
-p.admission {
-    grid-column: calc(var(--columns-grid) / 2) / calc(var(--columns-grid) / 2 + 2);
-    grid-row: calc(var(--rows-grid) / 2 - 2);
-
-    display: flex;
-    align-items: center;
-}
-p.tuesday {
-    grid-column: calc(var(--columns-grid) / 2 + 3) / calc(var(--columns-grid) / 2 + 5);
-    grid-row: calc(var(--rows-grid) / 2 - 1);
-
-    display: flex;
-    align-items: center;
-}
-
-
-
-
-/* ---------------------------------------- LAYOUT -------------------------------------------- */
-
+/* -------------------------------------------LAYOUT-------------------------------------- */
+/* define grid */
 #grid {
     display: grid;
-    grid-template-columns: repeat(var(--columns-grid), 100px);
-    grid-template-rows: repeat(var(--rows-grid), 100px);
+    grid-template-columns: repeat(var(--grid), 100px);
+    grid-template-rows: repeat(var(--grid), 100px);
     gap: 10px;
     justify-content: center;
     align-content: center;
@@ -136,7 +71,77 @@ p.tuesday {
     height: 140vh;
 }
 
+/* spacing in grid */
+.double {
+    grid-column: span 2;
+}
 
+
+/* place titles in grid */
+h1.sugarcubes {
+    grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 4);
+    grid-row: calc(var(--grid) / 2);
+}
+
+h1.the {
+    grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 1);
+    grid-row: calc(var(--grid) / 2 - 1);
+}
+
+/* place text in grid */
+p.limelight {
+    grid-column: calc(var(--grid) / 2 + 1) / calc(var(--grid) / 2 + 3);
+    grid-row: calc(var(--grid) / 2 - 1);
+
+    display: flex;
+    align-items: center;
+}
+p.admission {
+    grid-column: calc(var(--grid) / 2) / calc(var(--grid) / 2 + 2);
+    grid-row: calc(var(--grid) / 2 - 2);
+
+    display: flex;
+    align-items: center;
+}
+p.tuesday {
+    grid-column: calc(var(--grid) / 2 + 3) / calc(var(--grid) / 2 + 5);
+    grid-row: calc(var(--grid) / 2 - 1);
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* empty spaces around title */
+div.empty1 {
+    grid-column: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 6);
+    grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 1);
+    background-color: transparent;
+}
+div.empty2 {
+    grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 2);  
+    grid-row: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 3);
+    background-color: transparent;
+}
+div.empty3 {
+    grid-column: calc(var(--grid) / 2 ) / calc(var(--grid) / 2 + 3);
+    grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 2);
+    background-color: transparent;
+}
+div.empty4 {
+    grid-column: calc(var(--grid) / 2 + 4) / calc(var(--grid) / 2 + 5); 
+    grid-row: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 3);
+    background-color: transparent;
+}
+div.empty5 {
+    grid-column: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 6);
+    grid-row: calc(var(--grid) / 2);
+    background-color: transparent;
+}
+
+
+
+/* ---------------------------------------- COLORS -------------------------------------------- */
 /* set colors of divs in grid */
 .cyan {
     background-color: var(--cyan);
@@ -150,9 +155,69 @@ p.tuesday {
     background-color: var(--black);
 }
 
-/* spacing in grid */
-.double {
-    grid-column: span 2;
+
+
+/* ------------------------------------ MEDIA QUERIES -------------------------------- */
+
+@media screen and (max-width: 800px) {
+    #grid {
+        display: grid;
+        grid-template-columns: repeat(var(--grid), 90px);
+        grid-template-rows: repeat(var(--grid), 90px);
+        gap: 8px;
+        justify-content: center;
+        align-content: center;
+        width: 110vw;
+        height: 140vh;
+    }
+
+    h1 {
+        font-size: 6.5rem;
+    }
+    
+    p {
+        padding: 0px 15px;
+        font-size: 1rem;
+    }
+
+    div.empty1 {
+        grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 5);
+        grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 1);
+        background-color: transparent;
+    }
+    div.empty2 {
+        grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 2);  
+        grid-row: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 2);
+        background-color: transparent;
+    }
+    div.empty5 {
+        grid-column: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 5);
+        grid-row: calc(var(--grid) / 2);
+        background-color: transparent;
+    }
 }
 
+@media screen and (max-width: 600px) {
+    h1.sugarcubes {
+        grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 2);
+        grid-row: calc(var(--grid) / 2) / calc(var(--grid) / 2 + 2);
+        word-break: break-all;
+    }
 
+    div.empty1 {
+        grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 5);
+        grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 1);
+        background-color: transparent;
+    }
+    div.empty2 {
+        grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 2);  
+        grid-row: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 2);
+        background-color: transparent;
+    }
+    div.empty5 {
+        grid-column: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 5);
+        grid-row: calc(var(--grid) / 2);
+        background-color: transparent;
+    }
+
+}
