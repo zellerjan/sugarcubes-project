@@ -101,8 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let offsetY = window.innerHeight / 2;
 
             // Calculate the transformed coordinates
-            let transformedX = Math.cos(angle) * (x - offsetX) - Math.sin(angle) * (y - offsetY) + offsetX;
-            let transformedY = Math.sin(angle) * (x - offsetX) + Math.cos(angle) * (y - offsetY) + offsetY;
+            let transformedX = Math.cos(angle) * (x - offsetX) - Math.sin(angle) * (y - offsetY) + offsetX + 180;
+            let transformedY = Math.sin(angle) * (x - offsetX) + Math.cos(angle) * (y - offsetY) + offsetY + 75;
 
             return {
                 x: transformedX,

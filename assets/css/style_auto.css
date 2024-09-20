@@ -9,7 +9,7 @@ Version: 2.0
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
-/* ----------------------------------DEFINE COLOR-VARIABLES AND ROOT STUFF--------------------------- */
+/* ----------------------------------DEFINE VARIABLES AND ROOT STUFF--------------------------- */
 :root {
     --background: #DEE1D6;
     --cyan: #00B2A2;
@@ -22,6 +22,9 @@ Version: 2.0
     --white: #FFF;
 
     --grid: 20;
+
+    /* hide regular cursor */
+    cursor: none;
 }
 
 /* change selection color and background */
@@ -48,13 +51,14 @@ h1 {
     margin: 0;
     padding-left: 10px;
     letter-spacing: -6px;
-    line-height: .95;
+    line-height: .85;
+    z-index: 1;
 }
 
 p {
     font-weight: 400;
     padding: 0px 20px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: 0;
 }
 
@@ -159,9 +163,9 @@ div.empty5 {
 
 /* ------------------------------------ MEDIA QUERIES -------------------------------- */
 
+/* tablet version */
 @media screen and (max-width: 800px) {
     #grid {
-        display: grid;
         grid-template-columns: repeat(var(--grid), 90px);
         grid-template-rows: repeat(var(--grid), 90px);
         gap: 8px;
@@ -197,15 +201,38 @@ div.empty5 {
     }
 }
 
+/* mobile version */
 @media screen and (max-width: 600px) {
+    #grid {
+            width: 160vw;
+            height: 140vh;
+    }
+
+    h1 {
+        font-size: 6rem;
+        line-height: 1;
+    }
+    
+    p {
+        padding: 0px 15px;
+        font-size: 1rem;
+    }
+
     h1.sugarcubes {
         grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 2);
         grid-row: calc(var(--grid) / 2) / calc(var(--grid) / 2 + 2);
         word-break: break-all;
+        max-width: 230px;
+    }
+
+    p.tuesday {
+        grid-column: calc(var(--grid) / 2 + 2) / calc(var(--grid) / 2 + 4);
+        grid-row: calc(var(--grid) / 2 - 2);
+        background-color: var(--magenta);
     }
 
     div.empty1 {
-        grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 5);
+        grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 3);
         grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 1);
         background-color: transparent;
     }
@@ -214,10 +241,140 @@ div.empty5 {
         grid-row: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 2);
         background-color: transparent;
     }
+    div.empty3 {
+        grid-column: calc(var(--grid) / 2 ) / calc(var(--grid) / 2 + 3);
+        grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 1);
+        background-color: transparent;
+    }
+    div.empty4 {
+        grid-column: calc(var(--grid) / 2 + 4) / calc(var(--grid) / 2 + 5); 
+        grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 3);
+        background-color: transparent;
+    }
     div.empty5 {
-        grid-column: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 5);
+        grid-column: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 3);
         grid-row: calc(var(--grid) / 2);
         background-color: transparent;
     }
 
+    /* remove custom cursor on mobile */
+    .cursor-dot,
+    .cursor-dot-outline {
+        display: none;
+    }
+
 }
+
+/* desktop on big screens */
+@media screen and (min-height: 1000px) and (min-width: 1500px) {
+    
+    #grid {
+        grid-template-columns: repeat(var(--grid), 120px);
+        grid-template-rows: repeat(var(--grid), 120px);
+        gap: 12px;
+        width: 110vw;
+        height: 140vh;
+    }
+
+    h1 {
+        font-size: 9rem;
+        line-height: .8;
+    }
+    
+    p {
+        padding: 0px 15px;
+        font-size: 1.2rem;
+    }
+}
+
+/* desktop on wide-screens */
+@media screen and (min-width: 2000px) {
+    
+    #grid {
+        grid-template-columns: repeat(var(--grid), 150px);
+        grid-template-rows: repeat(var(--grid), 150px);
+        gap: 15px;
+        width: 110vw;
+        height: 140vh;
+    }
+
+    h1 {
+        font-size: 11rem;
+        line-height: .9;
+    }
+    
+    p {
+        padding: 0px 15px;
+        font-size: 1.5rem;
+    }
+}
+
+/* desktop on ultra-wide screens */
+@media screen and (min-width: 2600px) {
+    #grid {
+        grid-template-columns: repeat(var(--grid), 160px);
+        grid-template-rows: repeat(var(--grid), 160px);
+        gap: 15px;
+        width: 105vw;
+        height: 145vh;
+    }
+}
+
+
+
+/* -------------------------------------- CUSTOM CURSOR -------------------------------------- */
+.cursor-dot,
+.cursor-dot-outline {
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 2;
+}
+
+.cursor-dot {
+  --size: 10px;
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--magenta);
+}
+
+.cursor-dot-outline {
+  --size2: 40px;
+  width: var(--size2);
+  height: var(--size2);
+  background-color: var(--magenta-25);
+  border: 3px solid var(--magenta-75);
+}
+
+/* change color of cursor if hovering on same color */
+.hovering-magenta {
+    background-color: var(--black);
+}
+
+.hovering-magenta-outline {
+    background-color: var(--black-25);
+    border: 3px solid var(--black-75);
+}
+
+
+/* ------------------------------------ HOVER EFFECT + TRANSITION ---------------------------------- */
+
+/* scale down on hover effect */
+/* div:not(.title, .text):hover {
+    transform: scale(.8);
+} */
+
+/* set standard of deco-tiles to not visible */
+/* div:where(:not(.title, .text)) {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+} */
+
+/* class to make tiles visible with script.js */
+/* .visible {
+    opacity: 1;
+} */
