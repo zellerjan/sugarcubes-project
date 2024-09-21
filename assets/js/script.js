@@ -84,36 +84,34 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorEnlarged: false,
         $dot: document.querySelector('.cursor-dot'),
         $outline: document.querySelector('.cursor-dot-outline'),
-
+    
         init: function() {
-            // Set up element sizes
+            // Setze die Grössen der Elemente
             this.dotSize = this.$dot.offsetWidth;
             this.outlineSize = this.$outline.offsetWidth;
-            
+    
             this.setupEventListeners();
             this.animateDotOutline();
         },
-
-        getTransformedCoordinates: function(x, y) {
-            // Adjust based on body's rotation (45 degrees)
-            let angle = 45 * (Math.PI / 180);
-            let offsetX = window.innerWidth / 2;
-            let offsetY = window.innerHeight / 2;
-
-            // Calculate the transformed coordinates
-            let transformedX = Math.cos(angle) * (x - offsetX) - Math.sin(angle) * (y - offsetY) + offsetX + 180;
-            let transformedY = Math.sin(angle) * (x - offsetX) + Math.cos(angle) * (y - offsetY) + offsetY + 75;
-
-            return {
-                x: transformedX,
-                y: transformedY
-            };
-        },
-
+    
         setupEventListeners: function() {
             let self = this;
-            
-            // Anchor hovering
+    
+            // Mausbewegungen direkt verfolgen
+            document.addEventListener('mousemove', function(e) {
+                self.cursorVisible = true;
+                self.toggleCursorVisibility();
+    
+                // Verfolge direkt die Mausposition
+                self.endX = e.pageX;
+                self.endY = e.pageY;
+                self.updateCursorPosition();
+    
+                // Überprüfe, ob der Cursor über einem Element mit der Klasse .magenta ist
+                self.checkIfHoveringMagenta(e);
+            });
+    
+            // Interaktionen mit Links
             document.querySelectorAll('a').forEach(function(el) {
                 el.addEventListener('mouseover', function() {
                     self.cursorEnlarged = true;
@@ -124,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     self.toggleCursorSize();
                 });
             });
-            
-            // Click events
+    
+            // Mausklick-Interaktionen
             document.addEventListener('mousedown', function() {
                 self.cursorEnlarged = true;
                 self.toggleCursorSize();
@@ -134,54 +132,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 self.cursorEnlarged = false;
                 self.toggleCursorSize();
             });
-
-            // Mouse move event with transformed coordinates
-            document.addEventListener('mousemove', function(e) {
-                // Show the cursor
-                self.cursorVisible = true;
-                self.toggleCursorVisibility();
-
-                // Get transformed coordinates
-                let coords = self.getTransformedCoordinates(e.pageX, e.pageY);
-                self.endX = coords.x;
-                self.endY = coords.y;
-                self.updateCursorPosition();
-
-                // Check if hovering over any part of a div with class .magenta
-                let magentaElements = document.querySelectorAll('.magenta');
-                let isHoveringMagenta = false;
-
-                magentaElements.forEach(function(magentaElement) {
-                    let rect = magentaElement.getBoundingClientRect();
-                    let isInBounds = (
-                        e.clientX >= rect.left &&
-                        e.clientX <= rect.right &&
-                        e.clientY >= rect.top &&
-                        e.clientY <= rect.bottom
-                    );
-
-                    if (isInBounds) {
-                        isHoveringMagenta = true;
-                    }
-                });
-
-                if (isHoveringMagenta) {
-                    self.$dot.classList.add('hovering-magenta');
-                    self.$outline.classList.add('hovering-magenta-outline');
-                } else {
-                    self.$dot.classList.remove('hovering-magenta');
-                    self.$outline.classList.remove('hovering-magenta-outline');
-                }
-            });
-            
-            // Hide/show cursor on page entry/exit
+    
+            // Cursor anzeigen/verstecken
             document.addEventListener('mouseenter', function() {
                 self.cursorVisible = true;
                 self.toggleCursorVisibility();
                 self.$dot.style.opacity = 1;
                 self.$outline.style.opacity = 1;
             });
-            
+    
             document.addEventListener('mouseleave', function() {
                 self.cursorVisible = false;
                 self.toggleCursorVisibility();
@@ -189,25 +148,54 @@ document.addEventListener('DOMContentLoaded', () => {
                 self.$outline.style.opacity = 0;
             });
         },
-
+    
+        checkIfHoveringMagenta: function(e) {
+            // Überprüfe, ob der Cursor über einem .magenta-Element ist
+            let magentaElements = document.querySelectorAll('.magenta');
+            let isHoveringMagenta = false;
+    
+            magentaElements.forEach(function(magentaElement) {
+                let rect = magentaElement.getBoundingClientRect();
+                let isInBounds = (
+                    e.clientX >= rect.left &&
+                    e.clientX <= rect.right &&
+                    e.clientY >= rect.top &&
+                    e.clientY <= rect.bottom
+                );
+    
+                if (isInBounds) {
+                    isHoveringMagenta = true;
+                }
+            });
+    
+            // Passe die Klassen an, wenn der Cursor über einem magenta-Element ist
+            if (isHoveringMagenta) {
+                this.$dot.classList.add('hovering-magenta');
+                this.$outline.classList.add('hovering-magenta-outline');
+            } else {
+                this.$dot.classList.remove('hovering-magenta');
+                this.$outline.classList.remove('hovering-magenta-outline');
+            }
+        },
+    
         updateCursorPosition: function() {
-            // Directly updating the top and left positions
+            // Aktualisiere direkt die Position von .cursor-dot und .cursor-dot-outline
             this.$dot.style.top = `${this.endY}px`;
             this.$dot.style.left = `${this.endX}px`;
             this.$outline.style.top = `${this._y}px`;
             this.$outline.style.left = `${this._x}px`;
         },
-        
+    
         animateDotOutline: function() {
             let self = this;
-            
+    
             self._x += (self.endX - self._x) / self.delay;
             self._y += (self.endY - self._y) / self.delay;
             self.updateCursorPosition();
-            
+    
             requestAnimationFrame(this.animateDotOutline.bind(self));
         },
-
+    
         toggleCursorSize: function() {
             if (this.cursorEnlarged) {
                 this.$dot.style.transform = 'translate(-50%, -50%) scale(0.75)';
@@ -217,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.$outline.style.transform = 'translate(-50%, -50%) scale(1)';
             }
         },
-        
+    
         toggleCursorVisibility: function() {
             if (this.cursorVisible) {
                 this.$dot.style.opacity = 1;
@@ -228,6 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
+    
     cursor.init();
 
 });

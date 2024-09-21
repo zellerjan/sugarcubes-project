@@ -21,8 +21,6 @@ Version: 2.0
     --black-75: #00000075;
     --white: #FFF;
 
-    /* hide regular cursor */
-    cursor: none;
 }
 
 /* change selection color and background */
@@ -38,9 +36,10 @@ body {
     font-family: "Roboto", sans-serif;
     background-color: var(--background);
     margin: 0;
-
     overflow: hidden;
-    transform: rotate(-45deg);
+    
+    /* hide regular cursor */
+    cursor: none;
 }
 
 h1 {
@@ -71,6 +70,9 @@ p {
     justify-content: center;
     align-content: center;
     height: 95vh;
+
+    
+    transform: rotate(-45deg);
 }
 
 /* move text in vertical center of div without messing with mobile tiles */
