@@ -21,9 +21,6 @@ Version: 2.2
         --black-75: #00000075;
         --white: #FFF;
         --grid: 20;
-
-        /* hide regular cursor */
-        cursor: none;
     }
 
     /* change selection color and background */
@@ -41,7 +38,9 @@ Version: 2.2
         margin: 0;
 
         overflow: hidden;
-        
+        /* hide regular cursor */
+        cursor: none;
+    
     }
 
     h1 {

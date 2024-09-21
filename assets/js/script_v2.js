@@ -236,31 +236,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     //-------------- FUNCTION FOR RANDOM DIVS APPEARING ON SCREEN OVER TIME --------------------
+        // Collect all divs with the classes .black, .magenta, .cyan
         const divs = document.querySelectorAll('.black, .magenta, .cyan');
         let visibleDivs = [];
 
-        // Function to randomly show divs inside the viewport
-        function showRandomVisibleDiv() {
-            if (visibleDivs.length > 0) {
-                const randomIndex = Math.floor(Math.random() * visibleDivs.length);
-                const randomDiv = visibleDivs[randomIndex];
+        // how close an element can be to the window edges and still be considered "visible"
+        const edgeThreshold = 200; 
 
+        // Function to check if a div is close enough to the window to be considered visible
+        function isDivCloseToWindowEdge(div) {
+            const rect = div.getBoundingClientRect();
+            
+            // Check if the div's bounding box is within the window, allowing for an edge margin (threshold)
+            return (
+                rect.top >= -edgeThreshold && rect.left >= -edgeThreshold &&
+                rect.bottom <= window.innerHeight + edgeThreshold &&
+                rect.right <= window.innerWidth + edgeThreshold
+            );
+        }
+
+        // Function to randomly show a div that is visible or close to the window edges
+        function showRandomVisibleDiv() {
+            // Filter the visible divs to only those within or close to the window bounds
+            const divsNearWindow = visibleDivs.filter(isDivCloseToWindowEdge);
+
+            if (divsNearWindow.length > 0) {
+                const randomIndex = Math.floor(Math.random() * divsNearWindow.length);
+                const randomDiv = divsNearWindow[randomIndex];
+
+                // Add 'visible' class if it’s not already present
                 if (!randomDiv.classList.contains('visible')) {
                     randomDiv.classList.add('visible');
                 }
             }
         }
 
-        // Set up the IntersectionObserver to track visibility of divs
+        // IntersectionObserver to track the visibility of the divs
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // If div is in the viewport, add it to the visibleDivs array
+                    // Add the div to the visible array if it’s in the viewport
                     if (!visibleDivs.includes(entry.target)) {
                         visibleDivs.push(entry.target);
                     }
                 } else {
-                    // If the div is not in the viewport, remove it from the visibleDivs array
+                    // Remove the div from the visible array if it’s no longer in the viewport
                     const index = visibleDivs.indexOf(entry.target);
                     if (index > -1) {
                         visibleDivs.splice(index, 1);
@@ -274,17 +294,21 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(div);
         });
 
-        // Call the function every .5s
-        let windowWidth = window.innerWidth;
-        console.log(windowWidth);
-        if (windowWidth <= 600) {
-            setInterval(showRandomVisibleDiv, 100);
-        }
-        else {
-            setInterval(showRandomVisibleDiv, 500);
+        // Function to update the interval based on the window width
+        function updateInterval() {
+            let windowWidth = window.innerWidth;
+            if (windowWidth <= 600) {
+                setInterval(showRandomVisibleDiv, 200); // Call every 0.2 seconds for small screens
+            } else {
+                setInterval(showRandomVisibleDiv, 500); // Call every 1 second for larger screens
+            }
         }
 
-        // added disclaimer, prints to console
+        // Initialize the interval based on the window width
+        updateInterval();
+
+
+        // ------------------- Disclaimer, prints to console -------------------------
         const disclaimer = 'Hey! This project was created as part of the course "Webtechnologien" at "Schule für Gestaltung Zürich". Its an interpretation of an existing poster for the Band "Sugarcubes". © Original Poster from Swissted https://www.swissted.com/products/the-sugarcubes-at-limelight-1992';
         console.log(disclaimer);
 
