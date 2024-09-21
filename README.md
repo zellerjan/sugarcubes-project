@@ -5,7 +5,7 @@ This project was created as part of the course "Webtechnologien" at "Schule für
 https://www.swissted.com/products/the-sugarcubes-at-limelight-1992
 
 
-Published Site of v1: https://zellerjan.github.io/sugarcubes-project/
+Published Site of v1: https://zellerjan.github.io/sugarcubes-project/ <br>
 Published Site of v2: tbd
 ________________
 <b>Project-Info:</b><br>
