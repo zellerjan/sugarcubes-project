@@ -24,7 +24,7 @@ Version: 2.0
     --grid: 20;
 
     /* hide regular cursor */
-    cursor: none;
+    /* cursor: none; */
 }
 
 /* change selection color and background */
@@ -141,7 +141,7 @@ div.empty4 {
     background-color: transparent;
 }
 div.empty5 {
-    grid-column: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 6);
+    grid-column: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 6);
     grid-row: calc(var(--grid) / 2);
     background-color: transparent;
 }
