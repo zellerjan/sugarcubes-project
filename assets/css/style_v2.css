@@ -390,17 +390,17 @@ Version: 2.2
 
 /* ------------------------------------ HOVER EFFECT + TRANSITION ---------------------------------- */
     /* scale down on hover effect */
-    /* div:not(.title, .text):hover {
+    div:not(.title, .text):hover {
         transform: scale(.8);
-    } */
+    }
 
     /* set standard of deco-tiles to not visible */
-    /* div:where(:not(.title, .text)) {
+    div:where(:not(.title, .text)) {
         opacity: 0;
         transition: opacity 0.5s ease, transform 0.5s ease;
-    } */
+    }
 
     /* class to make tiles visible with script.js */
-    /* .visible {
+    .visible {
         opacity: 1;
-    } */
+    }
