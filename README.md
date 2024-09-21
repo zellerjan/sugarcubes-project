@@ -4,6 +4,9 @@ This project was created as part of the course "Webtechnologien" at "Schule für
 © Original Poster from Swissted
 https://www.swissted.com/products/the-sugarcubes-at-limelight-1992
 
+
+Published Site of v1: https://zellerjan.github.io/sugarcubes-project/
+Published Site of v2: tbd
 ________________
 <b>Project-Info:</b><br>
 v1 = was the first approach, more static with hardcoded divs and more control <br>
