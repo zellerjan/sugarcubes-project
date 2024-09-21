@@ -72,7 +72,7 @@ p {
     gap: 10px;
     justify-content: center;
     align-content: center;
-    width: 110vw;
+    width: 105vw;
     height: 140vh;
 
     transform: rotate(-45deg);
@@ -269,7 +269,7 @@ div.empty5 {
 }
 
 /* desktop on big screens */
-@media screen and (min-height: 1000px) and (min-width: 1500px) {
+@media screen and (min-width: 1500px) {
     
     #grid {
         grid-template-columns: repeat(var(--grid), 120px);
@@ -320,6 +320,28 @@ div.empty5 {
         gap: 15px;
         width: 105vw;
         height: 145vh;
+    }
+}
+
+/* for screens less high than 800px */
+@media screen and (max-height: 800px) {
+    #grid {
+        grid-template-columns: repeat(var(--grid), 90px);
+        grid-template-rows: repeat(var(--grid), 90px);
+        gap: 8px;
+        justify-content: center;
+        align-content: center;
+        width: 110vw;
+        height: 150vh;
+    }
+
+    h1 {
+        font-size: 6.5rem;
+    }
+    
+    p {
+        padding: 0px 15px;
+        font-size: 1rem;
     }
 }
 
