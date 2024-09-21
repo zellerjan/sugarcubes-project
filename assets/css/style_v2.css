@@ -24,7 +24,7 @@ Version: 2.0
     --grid: 20;
 
     /* hide regular cursor */
-    /* cursor: none; */
+    cursor: none;
 }
 
 /* change selection color and background */
@@ -206,8 +206,8 @@ div.empty5 {
 /* mobile version */
 @media screen and (max-width: 600px) {
     #grid {
-            width: 160vw;
-            height: 140vh;
+        width: 140vw;
+        height: 125vh;
     }
 
     h1 {
