@@ -408,7 +408,7 @@ Version: 2.2
 /* -------------------------------------------- ANIMATION ---------------------------------------- */
 
     /* changes colors of the tiles around every 5s */
-    /* @keyframes change-black {
+    @keyframes change-black {
         0%   {background-color: var(--black);}
         20%  {background-color: var(--magenta);}
         60%  {background-color: var(--cyan);}
@@ -448,4 +448,4 @@ Version: 2.2
         animation-delay: 6s;
         animation-iteration-count: infinite;
         animation-timing-function: steps(1, end);
-    } */
+    }
