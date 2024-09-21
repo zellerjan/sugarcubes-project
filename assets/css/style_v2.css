@@ -389,26 +389,26 @@ Version: 2.2
 
 /* ------------------------------------ HOVER EFFECT + TRANSITION ---------------------------------- */
     /* scale down on hover effect */
-    div:not(.title, .text):hover {
+    /* div:not(.title, .text):hover {
         transform: scale(.8);
-    }
+    } */
 
     /* set standard of deco-tiles to not visible */
-    div:where(:not(.title, .text)) {
+    /* div:where(:not(.title, .text)) {
         opacity: 0;
         transition: opacity 0.5s ease, transform 0.5s ease;
-    }
+    } */
 
     /* class to make tiles visible with script.js */
-    .visible {
+    /* .visible {
         opacity: 1;
-    }
+    } */
 
 
 /* -------------------------------------------- ANIMATION ---------------------------------------- */
 
     /* changes colors of the tiles around every 5s */
-    @keyframes change-black {
+    /* @keyframes change-black {
         0%   {background-color: var(--black);}
         20%  {background-color: var(--magenta);}
         60%  {background-color: var(--cyan);}
@@ -448,4 +448,4 @@ Version: 2.2
         animation-delay: 6s;
         animation-iteration-count: infinite;
         animation-timing-function: steps(1, end);
-    }
+    } */
