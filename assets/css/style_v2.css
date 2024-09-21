@@ -1,37 +1,36 @@
 /* 
 Project: sugarcubes
 Author: Jan Zeller
-Version: 2.1 
+Version: 2.2 
 */
 
 
 /* ------------------------------IMPORT FONT "ROBOTO" FROM GOOGLE FONT ---------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
 /* ----------------------------------DEFINE VARIABLES AND ROOT STUFF--------------------------- */
-:root {
-    --background: #DEE1D6;
-    --cyan: #00B2A2;
-    --magenta: #ED147F;
-    --magenta-25: #ED147F25;
-    --magenta-75: #ED147F75;
-    --black: #000;
-    --black-25: #00000025;
-    --black-75: #00000075;
-    --white: #FFF;
+    :root {
+        --background: #DEE1D6;
+        --cyan: #00B2A2;
+        --magenta: #ED147F;
+        --magenta-25: #ED147F25;
+        --magenta-75: #ED147F75;
+        --black: #000;
+        --black-25: #00000025;
+        --black-75: #00000075;
+        --white: #FFF;
+        --grid: 20;
 
-    --grid: 20;
+        /* hide regular cursor */
+        cursor: none;
+    }
 
-    /* hide regular cursor */
-    /* cursor: none; */
-}
-
-/* change selection color and background */
-::selection {
-    background-color: var(--black);
-    color: var(--background);
-}
+    /* change selection color and background */
+    ::selection {
+        background-color: var(--black);
+        color: var(--background);
+    }
 
 
 
