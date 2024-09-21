@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Increment the index and reset it if it reaches the end of the array
             index = (index + 2) % classes.length;
             
-            // Optionally add the 'double' class (40% chance)
+            // Optionally add the 'double' class (35% chance)
             let divSpace = 1;
             if (Math.random() < 0.35 && remainingSpaces >= 2) {
                 newDiv.classList.add('double');

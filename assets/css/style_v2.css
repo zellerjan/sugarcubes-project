@@ -24,7 +24,7 @@ Version: 2.0
     --grid: 20;
 
     /* hide regular cursor */
-    cursor: none;
+    /* cursor: none; */
 }
 
 /* change selection color and background */
@@ -222,7 +222,7 @@ div.empty5 {
         grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 2);
         grid-row: calc(var(--grid) / 2) / calc(var(--grid) / 2 + 2);
         word-break: break-all;
-        max-width: 230px;
+        max-width: 232px;
     }
 
     p.tuesday {
