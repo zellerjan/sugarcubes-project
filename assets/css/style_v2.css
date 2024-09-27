@@ -99,6 +99,7 @@ Version: 2.4
 
         display: flex;
         align-items: center;
+        background-color: var(--magenta);
     }
     p.admission {
         grid-column: calc(var(--grid) / 2) / calc(var(--grid) / 2 + 2);
@@ -106,6 +107,7 @@ Version: 2.4
 
         display: flex;
         align-items: center;
+        background-color: var(--cyan);
     }
     p.tuesday {
         grid-column: calc(var(--grid) / 2 + 3) / calc(var(--grid) / 2 + 5);
@@ -113,6 +115,7 @@ Version: 2.4
 
         display: flex;
         align-items: center;
+        background-color: var(--cyan);
     }
 
 
@@ -393,7 +396,6 @@ Version: 2.4
         transform: scale(.8);
     }
 
-
     /* set standard of deco-tiles to not visible */
     div:where(:not(.title, .text)) {
         opacity: 0;
@@ -407,6 +409,30 @@ Version: 2.4
 
 
 /* -------------------------------------------- ANIMATION ---------------------------------------- */
+    
+    /* @keyframes flip {
+        from {
+            transform: rotateY(0deg);
+        }
+        to {
+            transform: rotateY(180deg);
+        }
+    }
+
+    #grid {
+        perspective: 100vw;
+    }
+    
+    div:is(.black, .cyan, .magenta):hover {
+        transition: 2s ease;
+        transform-style: preserve-3d;
+    }
+
+    .flipping {
+        animation: 2s ease flip;
+    }  */
+      
+
 
     /* changes colors of the tiles around every 5s */
     /* @keyframes change-black {
