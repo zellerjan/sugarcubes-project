@@ -32,11 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
             
             let divSpace = 1;
 
-            // 7% change to be empty tile
-            if (Math.random() < 0.07) {
-                newDiv.classList.add('empty');
+            // generate empty spaces only on screens wider than 600px
+            let windowWidth = window.innerWidth;
+            if (windowWidth >= 600) {
+                // 7% change to be empty tile on mobile
+                if (Math.random() < 0.07) {
+                    newDiv.classList.add('empty');
+                }
             }
-
+            
             // 35% chance to be double tile
             if (Math.random() < 0.35 && remainingSpaces >= 2) {
                 newDiv.classList.add('double');
@@ -304,9 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
         function updateInterval() {
             let windowWidth = window.innerWidth;
             if (windowWidth <= 600) {
-                setInterval(showRandomVisibleDiv, 200); // Call every 0.2 seconds for small screens
+                setInterval(showRandomVisibleDiv, 100); // Call every .1 seconds for small screens
             } else {
-                setInterval(showRandomVisibleDiv, 500); // Call every .5 second for larger screens
+                setInterval(showRandomVisibleDiv, 400); // Call every .4 second for larger screens
             }
         }
 
