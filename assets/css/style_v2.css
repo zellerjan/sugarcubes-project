@@ -393,10 +393,11 @@ Version: 2.4
         transform: scale(.8);
     }
 
+
     /* set standard of deco-tiles to not visible */
     div:where(:not(.title, .text)) {
         opacity: 0;
-        transition: opacity 0.5s ease, transform 0.5s ease;
+        transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     /* class to make tiles visible with script.js */
@@ -427,25 +428,26 @@ Version: 2.4
         100% {background-color: var(--magenta);}
     }
 
-    div.black {
+
+    div.black:where(:not(.empty)) {
         animation-name: change-black;
         animation-duration: 30s;
-        animation-delay: 5s;
+        animation-delay: 8s;
         animation-iteration-count: infinite;
         animation-timing-function: steps(1, end);
         
     }
-    div.cyan {
+    div.cyan:where(:not(.empty)) {
         animation-name: change-cyan;
         animation-duration: 30s;
-        animation-delay: 7s;
+        animation-delay: 10s;
         animation-iteration-count: infinite;
         animation-timing-function: steps(1, end);
     }
-    div.magenta {
+    div.magenta:where(:not(.empty)) {
         animation-name: change-magenta;
         animation-duration: 30s;
-        animation-delay: 6s;
+        animation-delay: 9s;
         animation-iteration-count: infinite;
         animation-timing-function: steps(1, end);
     } */
