@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             let divSpace = 1;
 
-            // 4% change to be empty tile
-            if (Math.random() < 0.1) {
+            // 7% change to be empty tile
+            if (Math.random() < 0.07) {
                 newDiv.classList.add('empty');
             }
 
