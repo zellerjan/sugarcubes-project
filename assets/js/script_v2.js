@@ -30,8 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Assign the next class in the array cyclically
             newDiv.classList.add(classes[index]);
             
-            // Optionally add the 'double' class (35% chance)
             let divSpace = 1;
+
+            // 4% change to be empty tile
+            if (Math.random() < 0.1) {
+                newDiv.classList.add('empty');
+            }
+
+            // 35% chance to be double tile
             if (Math.random() < 0.35 && remainingSpaces >= 2) {
                 newDiv.classList.add('double');
                 divSpace = 2;
