@@ -15,23 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Calculate the total number of spaces in the grid
         const totalGridSpaces =  columnsGrid * columnsGrid;
 
-        // Variables to control the pattern
+        // Variables to control pattern
         let index = 0;
-        let occupiedSpaces = 42; // Counts the actually occupied spaces (including double)
+        let occupiedSpaces = 40; // occupied spaces  with title, text etc. (including double)
+        let remainingSpaces = totalGridSpaces - occupiedSpaces; // Remaining spaces to fill
+        let currentRowPosition = occupiedSpaces % columnsGrid; // Track the current position in the row
 
-        // Calculate the number of divs that are already present
-        const existingDivs = document.querySelectorAll('div');
-        existingDivs.forEach(div => {
-            // Count normal divs as 1 and double divs as 2
-            if (div.classList.contains('double')) {
-                occupiedSpaces += 2; // Double takes 2 spaces
-            } else {
-                occupiedSpaces += 1; // Normal div takes 1 space
-            }
-        });
-
-        // Calculate the remaining spaces in the grid that still need to be filled
-        let remainingSpaces = totalGridSpaces - occupiedSpaces;
 
         // Create new divs as long as there are free spaces available
         while (remainingSpaces > 0) {
@@ -40,9 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Assign the next class in the array cyclically
             newDiv.classList.add(classes[index]);
-
-            // Increment the index and reset it if it reaches the end of the array
-            index = (index + 2) % classes.length;
             
             // Optionally add the 'double' class (35% chance)
             let divSpace = 1;
@@ -51,11 +37,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 divSpace = 2;
             }
 
+            // If we're at the end of the row and a double div would overflow, force single
+            if (divSpace === 2 && currentRowPosition >= columnsGrid - 1) {
+                // Not enough space at the end of the row, so keep it single
+                divSpace = 1;
+                newDiv.classList.remove('double');
+            }
+
             // Append the div to the grid
             grid.appendChild(newDiv);
             
-            // Subtract the occupied spaces from the remaining
-            remainingSpaces -= divSpace;
+            // Update the occupied and remaining spaces
+            occupiedSpaces += divSpace;
+            remainingSpaces = totalGridSpaces - occupiedSpaces;
+
+            // Update current row position (wrap around if necessary)
+            currentRowPosition = (currentRowPosition + divSpace) % columnsGrid;
+
+            // Increment the index for the next class in the array
+            index = (index + 1) % classes.length;
         }
 
 
