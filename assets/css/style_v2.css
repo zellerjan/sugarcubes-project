@@ -161,6 +161,7 @@ Version: 2.2
     .black {
         background-color: var(--black);
     }
+    
     .empty {
         background-color: transparent;
     }
