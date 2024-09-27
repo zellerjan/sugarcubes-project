@@ -1,7 +1,7 @@
 /* 
 Project: sugarcubes
 Author: Jan Zeller
-Version: 2.2 
+Version: 2.4
 */
 
 
@@ -36,11 +36,8 @@ Version: 2.2
         font-family: "Roboto", sans-serif;
         background-color: var(--background);
         margin: 0;
-
         overflow: hidden;
-        /* hide regular cursor */
-        cursor: none;
-    
+        cursor: none; /* hide regular cursor */
     }
 
     h1 {
@@ -148,8 +145,7 @@ Version: 2.2
 
 
 
-/* ---------------------------------------- COLORS -------------------------------------------- */
-    /* set colors of divs in grid */
+/* ---------------------------------------- COLORS OF DIVS ------------------------------------- */
     .cyan {
         background-color: var(--cyan);
     }
@@ -161,7 +157,7 @@ Version: 2.2
     .black {
         background-color: var(--black);
     }
-    
+
     .empty {
         background-color: transparent;
     }
