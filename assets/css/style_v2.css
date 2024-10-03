@@ -353,29 +353,29 @@ Version: 2.4
 /* -------------------------------------- CUSTOM CURSOR -------------------------------------- */
     .cursor-dot,
     .cursor-dot-outline {
-    pointer-events: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    z-index: 2;
+        pointer-events: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        z-index: 2;
     }
 
     .cursor-dot {
-    --size: 10px;
-    width: var(--size);
-    height: var(--size);
-    background-color: var(--magenta);
+        --size: 10px;
+        width: var(--size);
+        height: var(--size);
+        background-color: var(--magenta);
     }
 
     .cursor-dot-outline {
-    --size2: 40px;
-    width: var(--size2);
-    height: var(--size2);
-    background-color: var(--magenta-25);
-    border: 3px solid var(--magenta-75);
+        --size2: 40px;
+        width: var(--size2);
+        height: var(--size2);
+        background-color: var(--magenta-25);
+        border: 3px solid var(--magenta-75);
     }
 
     /* change color of cursor if hovering on same color */

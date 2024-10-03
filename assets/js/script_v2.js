@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (windowWidth <= 600) {
                 setInterval(showRandomVisibleDiv, 100); // Call every .1 seconds for small screens
             } else {
-                setInterval(showRandomVisibleDiv, 400); // Call every .4 second for larger screens
+                setInterval(showRandomVisibleDiv, 500); // Call every .5 second for larger screens
             }
         }
 
