@@ -1,6 +1,7 @@
 // WAIT FOR DOCUMENT TO FINISH LOADING
 document.addEventListener('DOMContentLoaded', () => {
 
+
     // -------------- GENERATE DIVS WITH RANDOM COLOR AND SOLO / DOUBLE SPACE ------------
         // Define the available classes in the order of the pattern
         const classes = ['magenta', 'cyan', 'black'];
@@ -67,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Increment the index for the next class in the array
             index = (index + 1) % classes.length;
         }
+
 
 
     // ----------------------- STOP SCROLLING ON MOBILE ---------------------------
@@ -237,13 +239,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
 
-
     // --------------------------MAKE DIVS VISIBLE ON HOVER ----------------------------------
         document.querySelectorAll('.black, .magenta, .cyan').forEach(div => {
             div.addEventListener('mouseenter', () => {
                 div.classList.add('visible');
             });
         });
+
+
 
     //-------------- FUNCTION FOR RANDOM DIVS APPEARING ON SCREEN OVER TIME --------------------
         // Collect all divs with the classes .black, .magenta, .cyan
@@ -318,27 +321,46 @@ document.addEventListener('DOMContentLoaded', () => {
         updateInterval();
 
 
+
     // -------------------------- FLIP ANIMATION ---------------------------------
-        // // Get all divs with the class black, cyan, or magenta
-        // const gridDivs = document.querySelectorAll('.black, .cyan, .magenta');
+        // Get all divs with the class black, cyan, or magenta
+        const gridDivs = document.querySelectorAll('.black, .cyan, .magenta');
 
-        // // Add event listeners for hover to trigger the animation
-        // gridDivs.forEach(div => {
-        //     div.addEventListener('mouseenter', () => {
-        //         // Remove the flipping class if it's already there to reset the animation
-        //         div.classList.remove('flipping');
+        // Add event listeners for hover to trigger the animation
+        gridDivs.forEach(div => {
+            div.addEventListener('mouseenter', () => {
+                // Remove the flipping class if it's already there to reset the animation
+                div.classList.remove('flipping');
                 
-        //         // Force a reflow/repaint to reset the animation
-        //         void div.offsetWidth;
+                // Force a reflow/repaint to reset the animation
+                void div.offsetWidth;
 
-        //         // Add the flipping class to trigger the animation
-        //         div.classList.add('flipping');
-        //     });
-        // });
+                // Add the flipping class to trigger the animation
+                div.classList.add('flipping');
+            });
+        });
+
+        function randomFlip() {
+            // Get all elements with the classes black, cyan, and magenta
+            
+            // Pick a random element from the NodeList
+            const randomElement = gridDivs[Math.floor(Math.random() * gridDivs.length)];
+    
+            // Add the "flipping" class to the random element
+            randomElement.classList.add('flipping');
+    
+            // After the animation remove the "flipping" class
+            setTimeout(() => {
+                randomElement.classList.remove('flipping');
+            }, 2000);
+        }
+    
+        // Call randomFlip every .3 second
+        setInterval(randomFlip, 300);
 
 
 
-    // ------------------- Disclaimer, prints to console -------------------------
+    // ------------------- DISCLAIMER, PRINTS TO CONSOLE -------------------------
         const disclaimer = 'Hey! This project was created as part of the course "Webtechnologien" at "Schule für Gestaltung Zürich". Its an interpretation of an existing poster for the Band "Sugarcubes". © Original Poster from Swissted https://www.swissted.com/products/the-sugarcubes-at-limelight-1992';
         console.log(disclaimer);
 
