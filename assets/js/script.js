@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // generate empty spaces only on screens wider than 600px
             let windowWidth = window.innerWidth;
             if (windowWidth >= 600) {
-                // 7% change to be empty tile on mobile
+                // 7% change to be empty tile on desktop
                 if (Math.random() < 0.07) {
                     newDiv.classList.add('empty');
                 }
@@ -312,12 +312,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(function() {
             setInterval(showRandomVisibleDiv, 1);
         }, 1000);
-
         
 
 
     // -------------------------- FLIP ANIMATION ---------------------------------
-
         function randomFlip() {
             // Get all elements with the classes black, cyan, and magenta (only visible ones)
             const flipElements = document.querySelectorAll('.visible.black, .visible.cyan, .visible.magenta');
