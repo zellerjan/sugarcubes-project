@@ -1,0 +1,477 @@
+/* 
+Project: sugarcubes
+Author: Jan Zeller
+Version: 3.0
+*/
+
+
+/* ------------------------------IMPORT FONT "ROBOTO" FROM GOOGLE FONT ---------------------------- */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/* ----------------------------------DEFINE VARIABLES AND ROOT STUFF--------------------------- */
+    :root {
+        --background: #DEE1D6;
+        --cyan: #00B2A2;
+        --magenta: #ED147F;
+        --magenta-25: #ED147F25;
+        --magenta-75: #ED147F75;
+        --black: #000;
+        --black-25: #00000025;
+        --black-75: #00000075;
+        --white: #FFF;
+        --grid: 20;
+    }
+
+    /* change selection color and background */
+    ::selection {
+        background-color: var(--black);
+        color: var(--background);
+    }
+
+
+
+/* --------------------------------------TYPOGRAPHY---------------------------------------- */
+    body {
+        font-family: "Roboto", sans-serif;
+        background-color: var(--background);
+        margin: 0;
+        overflow: hidden;
+        cursor: none; /* hide regular cursor */
+    }
+
+    h1 {
+        font-weight: 500;
+        font-size: 7.8rem;
+        margin: 0;
+        padding-left: 10px;
+        letter-spacing: -6px;
+        line-height: .85;
+        z-index: 1;
+    }
+
+    p {
+        font-weight: 400;
+        padding: 0px 20px;
+        font-size: 1.1rem;
+        margin: 0;
+        z-index: 1;
+    }
+
+
+
+/* -------------------------------------------LAYOUT-------------------------------------- */
+    /* define grid */
+    #grid {
+        display: grid;
+        grid-template-columns: repeat(var(--grid), 100px);
+        grid-template-rows: repeat(var(--grid), 100px);
+        gap: 10px;
+        justify-content: center;
+        align-content: center;
+        width: 105vw;
+        height: 140vh;
+
+        transform: rotate(-45deg);
+    }
+
+    /* spacing in grid */
+    .double {
+        grid-column: span 2;
+    }
+
+
+    /* place titles in grid */
+    h1.sugarcubes {
+        grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 4);
+        grid-row: calc(var(--grid) / 2);
+    }
+
+    h1.the {
+        grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 1);
+        grid-row: calc(var(--grid) / 2 - 1);
+    }
+
+    /* place text in grid */
+    p.limelight {
+        grid-column: calc(var(--grid) / 2 + 1) / calc(var(--grid) / 2 + 3);
+        grid-row: calc(var(--grid) / 2 - 1);
+
+        display: flex;
+        align-items: center;
+        background-color: var(--magenta);
+    }
+    p.admission {
+        grid-column: calc(var(--grid) / 2) / calc(var(--grid) / 2 + 2);
+        grid-row: calc(var(--grid) / 2 - 2);
+
+        display: flex;
+        align-items: center;
+        background-color: var(--cyan);
+    }
+    p.tuesday {
+        grid-column: calc(var(--grid) / 2 + 3) / calc(var(--grid) / 2 + 5);
+        grid-row: calc(var(--grid) / 2 - 1);
+
+        display: flex;
+        align-items: center;
+        background-color: var(--cyan);
+    }
+
+
+    /* empty spaces around title */
+    div.empty1 {
+        grid-column: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 6);
+        grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 1);
+        background-color: transparent;
+    }
+    div.empty2 {
+        grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 2);  
+        grid-row: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 3);
+        background-color: transparent;
+    }
+    div.empty3 {
+        grid-column: calc(var(--grid) / 2 ) / calc(var(--grid) / 2 + 3);
+        grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 2);
+        background-color: transparent;
+    }
+    div.empty4 {
+        grid-column: calc(var(--grid) / 2 + 4) / calc(var(--grid) / 2 + 5); 
+        grid-row: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 3);
+        background-color: transparent;
+    }
+    div.empty5 {
+        grid-column: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 6);
+        grid-row: calc(var(--grid) / 2);
+        background-color: transparent;
+    }
+
+
+
+/* ---------------------------------------- COLORS OF DIVS ------------------------------------- */
+    .cyan {
+        background-color: var(--cyan);
+    }
+
+    .magenta {
+        background-color: var(--magenta);
+    }
+
+    .black {
+        background-color: var(--black);
+    }
+
+    .empty {
+        background-color: transparent;
+    }
+
+
+
+/* ------------------------------------ MEDIA QUERIES -------------------------------- */
+
+    /* tablet version */
+    @media screen and (max-width: 768px) {
+        #grid {
+            grid-template-columns: repeat(var(--grid), 90px);
+            grid-template-rows: repeat(var(--grid), 90px);
+            gap: 8px;
+            justify-content: center;
+            align-content: center;
+            width: 110vw;
+            height: 140vh;
+        }
+
+        h1 {
+            font-size: 6.5rem;
+        }
+        
+        p {
+            padding: 0px 15px;
+            font-size: 1rem;
+        }
+
+        div.empty1 {
+            grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 5);
+            grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 1);
+            background-color: transparent;
+        }
+        div.empty2 {
+            grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 2);  
+            grid-row: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 2);
+            background-color: transparent;
+        }
+        div.empty5 {
+            grid-column: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 5);
+            grid-row: calc(var(--grid) / 2);
+            background-color: transparent;
+        }
+    }
+
+    /* mobile version */
+    @media screen and (max-width: 600px) {
+        #grid {
+            width: 140vw;
+            height: 125vh;
+        }
+
+        h1 {
+            font-size: 6rem;
+            line-height: 1;
+        }
+        
+        p {
+            padding: 0px 15px;
+            font-size: 1rem;
+        }
+
+        h1.sugarcubes {
+            grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 2);
+            grid-row: calc(var(--grid) / 2) / calc(var(--grid) / 2 + 2);
+            word-break: break-all;
+            max-width: 232px;
+        }
+
+        p.tuesday {
+            grid-column: calc(var(--grid) / 2 + 2) / calc(var(--grid) / 2 + 4);
+            grid-row: calc(var(--grid) / 2 - 2);
+            background-color: var(--magenta);
+        }
+
+        div.empty1 {
+            grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 3);
+            grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 1);
+            background-color: transparent;
+        }
+        div.empty2 {
+            grid-column: calc(var(--grid) / 2 - 1) / calc(var(--grid) / 2 + 2);  
+            grid-row: calc(var(--grid) / 2 - 3) / calc(var(--grid) / 2 + 2);
+            background-color: transparent;
+        }
+        div.empty3 {
+            grid-column: calc(var(--grid) / 2 ) / calc(var(--grid) / 2 + 3);
+            grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 1);
+            background-color: transparent;
+        }
+        div.empty4 {
+            grid-column: calc(var(--grid) / 2 + 4) / calc(var(--grid) / 2 + 5); 
+            grid-row: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 3);
+            background-color: transparent;
+        }
+        div.empty5 {
+            grid-column: calc(var(--grid) / 2 - 2) / calc(var(--grid) / 2 + 3);
+            grid-row: calc(var(--grid) / 2);
+            background-color: transparent;
+        }
+
+        /* remove custom cursor on mobile */
+        .cursor-dot,
+        .cursor-dot-outline {
+            display: none;
+        }
+
+    }
+
+    /* desktop on big screens */
+    @media screen and (min-width: 1500px) {
+        
+        #grid {
+            grid-template-columns: repeat(var(--grid), 120px);
+            grid-template-rows: repeat(var(--grid), 120px);
+            gap: 12px;
+            width: 105vw;
+            height: 140vh;
+        }
+
+        h1 {
+            font-size: 9rem;
+            line-height: .8;
+        }
+        
+        p {
+            padding: 0px 15px;
+            font-size: 1.2rem;
+        }
+    }
+
+    /* desktop on wide-screens */
+    @media screen and (min-width: 2000px) {
+        
+        #grid {
+            grid-template-columns: repeat(var(--grid), 150px);
+            grid-template-rows: repeat(var(--grid), 150px);
+            gap: 15px;
+            width: 110vw;
+            height: 140vh;
+        }
+
+        h1 {
+            font-size: 11rem;
+            line-height: .9;
+        }
+        
+        p {
+            padding: 0px 15px;
+            font-size: 1.5rem;
+        }
+    }
+
+    /* desktop on ultra-wide screens */
+    @media screen and (min-width: 2600px) {
+        #grid {
+            grid-template-columns: repeat(var(--grid), 160px);
+            grid-template-rows: repeat(var(--grid), 160px);
+            gap: 15px;
+            width: 105vw;
+            height: 145vh;
+        }
+    }
+
+    /* for screens less high than 800px */
+    @media screen and (max-height: 800px) {
+        #grid {
+            grid-template-columns: repeat(var(--grid), 90px);
+            grid-template-rows: repeat(var(--grid), 90px);
+            gap: 8px;
+            justify-content: center;
+            align-content: center;
+            width: 110vw;
+            height: 150vh;
+        }
+
+        h1 {
+            font-size: 6.5rem;
+        }
+        
+        p {
+            padding: 0px 15px;
+            font-size: 1rem;
+        }
+    }
+
+
+
+/* -------------------------------------- CUSTOM CURSOR -------------------------------------- */
+    .cursor-dot,
+    .cursor-dot-outline {
+        pointer-events: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        z-index: 2;
+    }
+
+    .cursor-dot {
+        --size: 10px;
+        width: var(--size);
+        height: var(--size);
+        background-color: var(--magenta);
+    }
+
+    .cursor-dot-outline {
+        --size2: 40px;
+        width: var(--size2);
+        height: var(--size2);
+        background-color: var(--magenta-25);
+        border: 3px solid var(--magenta-75);
+    }
+
+    /* change color of cursor if hovering on same color */
+    .hovering-magenta {
+        background-color: var(--black);
+    }
+
+    .hovering-magenta-outline {
+        background-color: var(--black-25);
+        border: 3px solid var(--black-75);
+    }
+
+
+
+/* ------------------------------------ HOVER EFFECT + TRANSITION ---------------------------------- */
+    /* scale down on hover effect */
+    /* div:not(.title, .text):hover {
+        transform: scale(.8);
+    } */
+
+    /* set standard of deco-tiles to not visible */
+    div:where(:not(.title, .text)) {
+        opacity: 0;
+    }
+
+    /* class to make tiles visible with script.js */
+    .visible {
+        opacity: 1;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+
+/* -----------------------------------------FLIP ANIMATION ---------------------------------------- */
+    @keyframes flip {
+        from {
+            transform: rotateY(0deg);
+        }
+        to {
+            transform: rotateY(180deg);
+        }
+    }
+
+    #grid {
+        perspective: 100vw;
+    }
+    
+    div:is(.black, .cyan, .magenta):hover {
+        transition: 2s ease;
+    }
+
+    .flipping {
+        animation: 2s ease flip;
+    } 
+      
+
+
+    /* changes colors of the tiles around every 5s */
+    /* @keyframes change-black {
+        0%   {background-color: var(--black);}
+        20%  {background-color: var(--magenta);}
+        60%  {background-color: var(--cyan);}
+        100% {background-color: var(--black);}
+    }
+    @keyframes change-cyan {
+        0%   {background-color: var(--cyan);}
+        20%  {background-color: var(--black);}
+        60%  {background-color: var(--magenta);}
+        100% {background-color: var(--cyan);}
+    }
+    @keyframes change-magenta {
+        0%   {background-color: var(--magenta);}
+        20%  {background-color: var(--cyan);}
+        60% {background-color: var(--black);}
+        100% {background-color: var(--magenta);}
+    }
+
+
+    div.black:where(:not(.empty)) {
+        animation-name: change-black;
+        animation-duration: 30s;
+        animation-delay: 8s;
+        animation-iteration-count: infinite;
+        animation-timing-function: steps(1, end);
+        
+    }
+    div.cyan:where(:not(.empty)) {
+        animation-name: change-cyan;
+        animation-duration: 30s;
+        animation-delay: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: steps(1, end);
+    }
+    div.magenta:where(:not(.empty)) {
+        animation-name: change-magenta;
+        animation-duration: 30s;
+        animation-delay: 9s;
+        animation-iteration-count: infinite;
+        animation-timing-function: steps(1, end);
+    } */
