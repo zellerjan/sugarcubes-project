@@ -1,4 +1,3 @@
-
 // WAIT FOR DOCUMENT TO FINISH LOADING
 document.addEventListener('DOMContentLoaded', () => {
 
