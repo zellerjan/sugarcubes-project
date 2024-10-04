@@ -263,12 +263,6 @@ Version: 4.1
             background-color: transparent;
         }
 
-        /* remove custom cursor on mobile */
-        .cursor-dot,
-        .cursor-dot-outline {
-            display: none;
-        }
-
     }
 
     /* BIG SCREENS */
@@ -343,6 +337,14 @@ Version: 4.1
         p {
             padding: 0px 15px;
             font-size: 1rem;
+        }
+    }
+
+    /* remove custom cursor on mobile / tablet */
+    @media screen and (max-width: 900px) {
+        .cursor-dot,
+        .cursor-dot-outline {
+            display: none;
         }
     }
 
