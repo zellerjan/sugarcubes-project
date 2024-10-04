@@ -250,3 +250,71 @@ div:where(:not(.mobile-tile)):has(p) {
     border: 3px solid var(--black-75);
 
 }
+
+
+
+
+/* ------------------------------------ HOVER EFFECT + TRANSITION ---------------------------------- */
+
+/* scale down on hover effect */
+div:not(.title, .text):hover {
+    transform: scale(.8);
+}
+
+/* set standard of deco-tiles to not visible */
+div:where(:not(.title, .text)) {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* class to make tiles visible with script.js */
+.visible {
+    opacity: 1;
+}
+
+
+
+/* -------------------------------------------- ANIMATION ---------------------------------------- */
+
+/* changes colors of the tiles around every 5s */
+@keyframes change-black {
+    0%   {background-color: var(--black);}
+    20%  {background-color: var(--magenta);}
+    60%  {background-color: var(--cyan);}
+    100% {background-color: var(--black);}
+  }
+@keyframes change-cyan {
+    0%   {background-color: var(--cyan);}
+    20%  {background-color: var(--black);}
+    60%  {background-color: var(--magenta);}
+    100% {background-color: var(--cyan);}
+}
+@keyframes change-magenta {
+    0%   {background-color: var(--magenta);}
+    20%  {background-color: var(--cyan);}
+    60% {background-color: var(--black);}
+    100% {background-color: var(--magenta);}
+}
+
+div.black {
+    animation-name: change-black;
+    animation-duration: 30s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, end);
+    
+}
+div.cyan:not(.text) {
+    animation-name: change-cyan;
+    animation-duration: 30s;
+    animation-delay: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, end);
+}
+div.magenta:not(.text) {
+    animation-name: change-magenta;
+    animation-duration: 30s;
+    animation-delay: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, end);
+}

@@ -342,9 +342,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function randomFlip() {
             // Get all elements with the classes black, cyan, and magenta
-            
+            const flipElements = document.querySelectorAll('.black, .cyan, .magenta');
+
             // Pick a random element from the NodeList
-            const randomElement = gridDivs[Math.floor(Math.random() * gridDivs.length)];
+            const randomElement = flipElements[Math.floor(Math.random() * flipElements.length)];
     
             // Add the "flipping" class to the random element
             randomElement.classList.add('flipping');
