@@ -6,7 +6,7 @@ https://www.swissted.com/products/the-sugarcubes-at-limelight-1992
 
 
 Published Site of v1: https://zellerjan.github.io/sugarcubes-project/ <br>
-Published Site of v2: https://sugarcubes.janzeller.ch/
+Published Site of v2: https://zellerjan.github.io/sugarcubes-project/index_v2.html
 ________________
 <b>Project-Info:</b><br>
 v1 = was the first approach, more static with hardcoded divs and more control <br>
