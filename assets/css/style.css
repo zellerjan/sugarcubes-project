@@ -169,7 +169,7 @@ Version: 4.1
 
 /* ------------------------------------ MEDIA QUERIES -------------------------------- */
 
-    /* tablet version */
+    /* TABLET VERSION */
     @media screen and (max-width: 768px) {
         #grid {
             grid-template-columns: repeat(var(--grid), 90px);
@@ -207,7 +207,7 @@ Version: 4.1
         }
     }
 
-    /* mobile version */
+    /* MOBILE VERSION */
     @media screen and (max-width: 600px) {
         #grid {
             width: 140vw;
@@ -234,7 +234,7 @@ Version: 4.1
         p.tuesday {
             grid-column: calc(var(--grid) / 2 + 2) / calc(var(--grid) / 2 + 4);
             grid-row: calc(var(--grid) / 2 - 2);
-            background-color: var(--magenta);
+            background-color: var(--magenta); /* needs color change for asthetics ;) */
         }
 
         div.empty1 {
@@ -271,7 +271,7 @@ Version: 4.1
 
     }
 
-    /* desktop on big screens */
+    /* BIG SCREENS */
     @media screen and (min-width: 1500px) {
         
         #grid {
@@ -293,7 +293,7 @@ Version: 4.1
         }
     }
 
-    /* desktop on wide-screens */
+    /* REALLY !BIG! SCREENS */
     @media screen and (min-width: 2000px) {
         
         #grid {
@@ -315,7 +315,7 @@ Version: 4.1
         }
     }
 
-    /* desktop on ultra-wide screens */
+    /* REALLY REALLY ULTRA WIDE SCREENS */
     @media screen and (min-width: 2600px) {
         #grid {
             grid-template-columns: repeat(var(--grid), 160px);
@@ -326,7 +326,7 @@ Version: 4.1
         }
     }
 
-    /* for screens less high than 800px */
+    /* LESS HIGH SCREENS */
     @media screen and (max-height: 800px) {
         #grid {
             grid-template-columns: repeat(var(--grid), 90px);
@@ -390,22 +390,18 @@ Version: 4.1
 
 
 
-/* ------------------------------------ HOVER EFFECT + TRANSITION ---------------------------------- */
-    /* scale down effect */
+/* ------------------------------------ TRANSITION ------------------------------------------------ */
+    /* standard setting scaled down / not visible */
     div:not(.title, .text):is(.magenta, .cyan, .black) {
         transform: scale(.8);
-    }
-
-    /* set standard of deco-tiles to not visible */
-    div:where(:not(.title, .text)) {
         opacity: 0;
     }
 
     /* class to make tiles visible with script.js */
     div:not(.title, .text):is(.visible) {
-        opacity: 1;
+        transition: opacity 0.5s ease, transform 0.5s ease; 
         transform: scale(1);
-        transition: opacity 0.5s ease, transform 0.5s ease;
+        opacity: 1;
     }
 
 
@@ -422,4 +418,4 @@ Version: 4.1
     /* class for flip animation via js */
     .flipping {
         animation: 2s ease flip;
-    } 
+    }
