@@ -319,10 +319,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------- FLIP ANIMATION ---------------------------------
 
         function randomFlip() {
-            // Get all elements with the classes black, cyan, and magenta
-            const flipElements = document.querySelectorAll('.black, .cyan, .magenta');
+            // Get all elements with the classes black, cyan, and magenta (only visible ones)
+            const flipElements = document.querySelectorAll('.visible.black, .visible.cyan, .visible.magenta');
 
-            // Pick a random element from the NodeList
+            // If there are no matching elements, stop the function
+            if (flipElements.length === 0) return;
+
+            // Pick a random element
             const randomElement = flipElements[Math.floor(Math.random() * flipElements.length)];
     
             // Add the "flipping" class to the random element
@@ -334,8 +337,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 2000);
         }
     
-        // Call randomFlip every .3 second
-        setInterval(randomFlip, 300);
+        // Call randomFlip every second
+        setInterval(randomFlip, 1000);
 
 
 
