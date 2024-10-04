@@ -4,10 +4,11 @@ This project was created as part of the course "Webtechnologien" at "Schule für
 © Original Poster from Swissted
 https://www.swissted.com/products/the-sugarcubes-at-limelight-1992
 
-Draft: https://zellerjan.github.io/sugarcubes-project/ <br>
+Draft: https://zellerjan.github.io/sugarcubes-project/index_draft <br>
 v1: https://zellerjan.github.io/sugarcubes-project/index_v1.html <br>
 v2: https://zellerjan.github.io/sugarcubes-project/index_v2.html <br>
-v3: https://zellerjan.github.io/sugarcubes-project/index_v3.html
+v3: https://zellerjan.github.io/sugarcubes-project/index_v3.html <br>
+FINAL: https://zellerjan.github.io/sugarcubes-project/
 ________________
 <b>Project-Info:</b><br>
 draft = static approach without any transitions / animations <br>
