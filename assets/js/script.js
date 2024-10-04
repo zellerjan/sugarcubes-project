@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --------------------------- CUSTOM CURSOR ---------------------------------
         const cursor = {
-            delay: 25,
+            delay: 30,
             _x: 0,
             _y: 0,
             endX: (window.innerWidth / 2),
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
             // check if cursor is over a element with .magenta
             checkIfHoveringMagenta: function(e) {
-                let magentaElements = document.querySelectorAll('.magenta');
+                let magentaElements = document.querySelectorAll('.magenta, .limelight');
                 let isHoveringMagenta = false;
         
                 magentaElements.forEach(function(magentaElement) {
@@ -307,38 +307,16 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(div);
         });
 
-        // Function to update the interval based on the window width
-        function updateInterval() {
-            let windowWidth = window.innerWidth;
-            if (windowWidth <= 600) {
-                setInterval(showRandomVisibleDiv, 100); // Call every .1 seconds for small screens
-            } else {
-                setInterval(showRandomVisibleDiv, 500); // Call every .5 second for larger screens
-            }
-        }
 
-        // Initialize the interval based on the window width
-        updateInterval();
+        // wait 1s before showing all divs
+        setTimeout(function() {
+            setInterval(showRandomVisibleDiv, 1);
+        }, 1000);
 
+        
 
 
     // -------------------------- FLIP ANIMATION ---------------------------------
-        // Get all divs with the class black, cyan, or magenta
-        const gridDivs = document.querySelectorAll('.black, .cyan, .magenta');
-
-        // Add event listeners for hover to trigger the animation
-        gridDivs.forEach(div => {
-            div.addEventListener('mouseenter', () => {
-                // Remove the flipping class if it's already there to reset the animation
-                div.classList.remove('flipping');
-                
-                // Force a reflow/repaint to reset the animation
-                void div.offsetWidth;
-
-                // Add the flipping class to trigger the animation
-                div.classList.add('flipping');
-            });
-        });
 
         function randomFlip() {
             // Get all elements with the classes black, cyan, and magenta

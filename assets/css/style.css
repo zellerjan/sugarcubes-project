@@ -1,7 +1,7 @@
 /* 
 Project: sugarcubes
 Author: Jan Zeller
-Version: 3.0
+Version: 4.1
 */
 
 
@@ -391,10 +391,10 @@ Version: 3.0
 
 
 /* ------------------------------------ HOVER EFFECT + TRANSITION ---------------------------------- */
-    /* scale down on hover effect */
-    /* div:not(.title, .text):hover {
+    /* scale down effect */
+    div:not(.title, .text):is(.magenta, .cyan, .black) {
         transform: scale(.8);
-    } */
+    }
 
     /* set standard of deco-tiles to not visible */
     div:where(:not(.title, .text)) {
@@ -402,76 +402,24 @@ Version: 3.0
     }
 
     /* class to make tiles visible with script.js */
-    .visible {
+    div:not(.title, .text):is(.visible) {
         opacity: 1;
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: scale(1);
+        transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
 
 /* -----------------------------------------FLIP ANIMATION ---------------------------------------- */
     @keyframes flip {
         from {
-            transform: rotateY(0deg);
+            transform: rotateX(0deg);
         }
         to {
-            transform: rotateY(180deg);
+            transform: rotateX(180deg);
         }
     }
 
-    #grid {
-        perspective: 100vw;
-    }
-    
-    div:is(.black, .cyan, .magenta):hover {
-        transition: 2s ease;
-    }
-
+    /* class for flip animation via js */
     .flipping {
         animation: 2s ease flip;
     } 
-      
-
-
-    /* changes colors of the tiles around every 5s */
-    /* @keyframes change-black {
-        0%   {background-color: var(--black);}
-        20%  {background-color: var(--magenta);}
-        60%  {background-color: var(--cyan);}
-        100% {background-color: var(--black);}
-    }
-    @keyframes change-cyan {
-        0%   {background-color: var(--cyan);}
-        20%  {background-color: var(--black);}
-        60%  {background-color: var(--magenta);}
-        100% {background-color: var(--cyan);}
-    }
-    @keyframes change-magenta {
-        0%   {background-color: var(--magenta);}
-        20%  {background-color: var(--cyan);}
-        60% {background-color: var(--black);}
-        100% {background-color: var(--magenta);}
-    }
-
-
-    div.black:where(:not(.empty)) {
-        animation-name: change-black;
-        animation-duration: 30s;
-        animation-delay: 8s;
-        animation-iteration-count: infinite;
-        animation-timing-function: steps(1, end);
-        
-    }
-    div.cyan:where(:not(.empty)) {
-        animation-name: change-cyan;
-        animation-duration: 30s;
-        animation-delay: 10s;
-        animation-iteration-count: infinite;
-        animation-timing-function: steps(1, end);
-    }
-    div.magenta:where(:not(.empty)) {
-        animation-name: change-magenta;
-        animation-duration: 30s;
-        animation-delay: 9s;
-        animation-iteration-count: infinite;
-        animation-timing-function: steps(1, end);
-    } */
