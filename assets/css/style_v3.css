@@ -392,9 +392,9 @@ Version: 2.4
 
 /* ------------------------------------ HOVER EFFECT + TRANSITION ---------------------------------- */
     /* scale down on hover effect */
-    div:not(.title, .text):hover {
+    /* div:not(.title, .text):hover {
         transform: scale(.8);
-    }
+    } */
 
     /* set standard of deco-tiles to not visible */
     div:where(:not(.title, .text)) {
@@ -408,7 +408,29 @@ Version: 2.4
     }
 
 
-/* ---------------------------------------- ANIMATION ---------------------------------------- */
+/* -----------------------------------------FLIP ANIMATION ---------------------------------------- */
+    @keyframes flip {
+        from {
+            transform: rotateY(0deg);
+        }
+        to {
+            transform: rotateY(180deg);
+        }
+    }
+
+    #grid {
+        perspective: 100vw;
+    }
+    
+    div:is(.black, .cyan, .magenta):hover {
+        transition: 2s ease;
+    }
+
+    .flipping {
+        animation: 2s ease flip;
+    } 
+      
+
 
     /* changes colors of the tiles around every 5s */
     /* @keyframes change-black {

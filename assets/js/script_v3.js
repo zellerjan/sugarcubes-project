@@ -322,6 +322,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+    // -------------------------- FLIP ANIMATION ---------------------------------
+        // Get all divs with the class black, cyan, or magenta
+        const gridDivs = document.querySelectorAll('.black, .cyan, .magenta');
+
+        // Add event listeners for hover to trigger the animation
+        gridDivs.forEach(div => {
+            div.addEventListener('mouseenter', () => {
+                // Remove the flipping class if it's already there to reset the animation
+                div.classList.remove('flipping');
+                
+                // Force a reflow/repaint to reset the animation
+                void div.offsetWidth;
+
+                // Add the flipping class to trigger the animation
+                div.classList.add('flipping');
+            });
+        });
+
+        function randomFlip() {
+            // Get all elements with the classes black, cyan, and magenta
+            
+            // Pick a random element from the NodeList
+            const randomElement = gridDivs[Math.floor(Math.random() * gridDivs.length)];
+    
+            // Add the "flipping" class to the random element
+            randomElement.classList.add('flipping');
+    
+            // After the animation remove the "flipping" class
+            setTimeout(() => {
+                randomElement.classList.remove('flipping');
+            }, 2000);
+        }
+    
+        // Call randomFlip every .3 second
+        setInterval(randomFlip, 300);
+
+
+
     // ------------------- DISCLAIMER, PRINTS TO CONSOLE -------------------------
         const disclaimer = 'Hey! This project was created as part of the course "Webtechnologien" at "Schule für Gestaltung Zürich". Its an interpretation of an existing poster for the Band "Sugarcubes". © Original Poster from Swissted https://www.swissted.com/products/the-sugarcubes-at-limelight-1992';
         console.log(disclaimer);
