@@ -3,7 +3,6 @@ This project was created as part of the course "Webtechnologien" at "Schule für
 
 © Original Poster from <a href="https://www.swissted.com/products/the-sugarcubes-at-limelight-1992" target="_blank">Swissted</a>
 
-<hr>
 <h2>Published:</h2>
 
 Draft: https://zellerjan.github.io/sugarcubes-project/index_draft <br>
