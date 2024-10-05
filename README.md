@@ -1,16 +1,16 @@
 <h1>About</h1>
-This project was created as part of the course "Webtechnologien" at "Schule für Gestaltung Zürich". It's an interpretation of an existing poster for the Band "Sugarcubes".
+<p>This project was created as part of the course "Webtechnologien" at "Schule für Gestaltung Zürich". It's an interpretation of an existing poster for the Band "Sugarcubes".</p>
 
-© Original Poster from <a href="https://www.swissted.com/products/the-sugarcubes-at-limelight-1992" target="_blank">Swissted</a>
+<p>© Original Poster from <a href="https://www.swissted.com/products/the-sugarcubes-at-limelight-1992" target="_blank">Swissted</a></p>
 
 <h2>Published:</h2>
-
+<p>
 Draft: https://zellerjan.github.io/sugarcubes-project/index_draft <br>
 v1: https://zellerjan.github.io/sugarcubes-project/index_v1.html <br>
 v2: https://zellerjan.github.io/sugarcubes-project/index_v2.html <br>
 v3: https://zellerjan.github.io/sugarcubes-project/index_v3.html <br>
 FINAL: https://zellerjan.github.io/sugarcubes-project/
-
+</p>
 <h2>Version-Info:</h2>
 draft = static approach without any transitions / animations <br>
 v1 = was the first approach, more static with hardcoded divs and more control <br>
