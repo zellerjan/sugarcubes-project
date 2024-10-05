@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // -------------- GENERATE DIVS WITH RANDOM COLOR AND SOLO / DOUBLE SPACE ------------
-        // Define the available classes in the order of the pattern
+        // Define the available classes
         const classes = ['magenta', 'cyan', 'black'];
 
         // Get all divs in your grid
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    //-------------- FUNCTION FOR RANDOM DIVS APPEARING ON SCREEN OVER TIME --------------------
+    //-------------- FUNCTION FOR RANDOM DIVS APPEARING ON SCREEN --------------------------
         // Collect all divs with the classes .black, .magenta, .cyan
         const divs = document.querySelectorAll('.black, .magenta, .cyan');
         let visibleDivs = [];
