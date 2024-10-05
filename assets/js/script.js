@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --------------------------- CUSTOM CURSOR ---------------------------------
         const cursor = {
-            delay: 30,
+            delay: 25,
             _x: 0,
             _y: 0,
             endX: (window.innerWidth / 2),

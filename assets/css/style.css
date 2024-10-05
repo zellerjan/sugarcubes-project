@@ -404,7 +404,7 @@ Version: 4.1
 
     /* class to make tiles visible with script.js */
     div:not(.title, .text):is(.visible) {
-        transition: opacity 0.5s ease, transform 0.5s ease; 
+        transition: opacity 0.5s ease, transform 0.3s ease; 
         transform: scale(1);
         opacity: 1;
     }
